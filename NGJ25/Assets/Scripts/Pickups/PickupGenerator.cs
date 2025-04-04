@@ -8,12 +8,10 @@ public class PickupGenerator : MonoBehaviour
     [SerializeField]
     private SplineInstantiate splineInstantiate;
     
-    public SplineInstantiate SplineInstantiate => this.splineInstantiate;
-
     private float length;
 
     [SerializeField]
-    private List<GameObject> powerUps;
+    private SplineInstantiate.InstantiableItem[] powerUps= new SplineInstantiate.InstantiableItem[6];
 
     public void Initialize(SplineContainer container)
     {
@@ -24,6 +22,7 @@ public class PickupGenerator : MonoBehaviour
 
     private void Spawn()
     {
-        Debug.Log(length);
+        splineInstantiate.itemsToInstantiate = powerUps;
+        splineInstantiate.UpdateInstances();
     }
 }

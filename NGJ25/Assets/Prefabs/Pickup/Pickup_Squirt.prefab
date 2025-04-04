@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2880083047143946463
+--- !u!1001 &5063111964070331980
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -52,28 +52,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8265490948835487708, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
+      propertyPath: Type
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4307960476711379127, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2655568577949152089}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
---- !u!1 &2031386760758319208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4307960476711379127, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
-  m_PrefabInstance: {fileID: 2880083047143946463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2655568577949152089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031386760758319208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2036766a227b44accb71c1b3590a7a47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
