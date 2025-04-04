@@ -37,8 +37,6 @@ public class Car : MonoBehaviour
             movement = this.playerControls.Player.Move.ReadValue<Vector2>();
         }
         
-        Debug.LogError(movement);
-        
         if (this.currentTrack != null)
         {
             this.transform.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
