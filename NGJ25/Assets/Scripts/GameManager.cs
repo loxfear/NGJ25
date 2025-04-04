@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
         
-        this.pickupGenerator.Initialize(localTrack.SplineExtrude);
+        this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
 
     }
 }

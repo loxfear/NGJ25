@@ -6,19 +6,19 @@ using UnityEngine.Splines;
 public class PickupGenerator : MonoBehaviour
 {
     [SerializeField]
-    private SplineExtrude splineExtrude;
+    private SplineInstantiate splineInstantiate;
     
-    public SplineExtrude SplineExtrude => this.splineExtrude;
+    public SplineInstantiate SplineInstantiate => this.splineInstantiate;
 
     private float length;
 
     [SerializeField]
     private List<GameObject> powerUps;
 
-    public void Initialize(SplineExtrude extrude)
+    public void Initialize(SplineContainer container)
     {
-        splineExtrude = extrude;
-        this.length = this.splineExtrude.Container.CalculateLength();
+        splineInstantiate.Container = container;
+        length = container.CalculateLength();
         Spawn();
     }
 

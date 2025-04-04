@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4166083478008292755}
   - component: {fileID: 1137314146193669869}
+  - component: {fileID: 4828121208707297048}
   m_Layer: 0
   m_Name: PickupGenerator
   m_TagString: Untagged
@@ -44,5 +45,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4d6b0746f974ce2922af301226888a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splineExtrude: {fileID: 0}
+  splineInstantiate: {fileID: 4828121208707297048}
   powerUps: []
+--- !u!114 &4828121208707297048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573563695801189078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Container: {fileID: 0}
+  m_ItemsToInstantiate: []
+  m_Method: 1
+  m_Space: 0
+  m_Spacing: {x: 1, y: 1}
+  m_Up: 1
+  m_Forward: 2
+  m_PositionOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_RotationOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_ScaleOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_DeprecatedInstances: []
+  m_AutoRefresh: 1
+  m_Seed: -98926
