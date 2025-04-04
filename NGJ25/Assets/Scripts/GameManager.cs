@@ -16,9 +16,6 @@ public class GameManager : MonoBehaviour
     
     private Car localCar;
     
-    public Car LocalCar => (localCar);
-    public PlayerController PlayerController => (PlayerController);
-    
     private void Awake()
     {
         this.localTrack = FindFirstObjectByType<Track>();

@@ -8,6 +8,8 @@ public class Pickup_Shrink : MonoBehaviour,IPickUp
     private float reducedSize = 0.75f;
     [SerializeField]
     private float resetTime = 5.0f;
+
+    private Collision _collided;
     void Start()
     {
         _manager = FindFirstObjectByType<GameManager>();
@@ -22,16 +24,17 @@ public class Pickup_Shrink : MonoBehaviour,IPickUp
     public void Consume()
     {
         Debug.Log(" Pickup_Shrink Consumed");
-        _manager.LocalCar.transform.localScale = Vector3.one * reducedSize;
+        _collided.transform.localScale = Vector3.one * reducedSize;
         Invoke("Reset",resetTime);
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        
+        _collided = collision;
+        Consume();
     }
     private void Reset()
     {
-        _manager.LocalCar.transform.localScale = Vector3.one;
+        _collided.transform.localScale = Vector3.one;
     }
 }
