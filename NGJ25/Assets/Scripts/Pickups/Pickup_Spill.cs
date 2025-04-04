@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour,IPickUp
+public class Pickup_Spill : MonoBehaviour,IPickUp
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,11 +16,11 @@ public class Pickup : MonoBehaviour,IPickUp
 
     public void Consume()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(" Pickup_Spill Consumed");
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
