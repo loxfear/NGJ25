@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameCamera gameCamera;
+    
     private Car currentCar;
 
-    private void Initialize(Car car)
+    public void Initialize(GameCamera gameCamera)
+    {
+        this.gameCamera = gameCamera;
+    }
+
+    public void SetCar(Car car)
     {
         this.currentCar = car;
+
+        this.gameCamera.FollowCar(car);
     }
 }

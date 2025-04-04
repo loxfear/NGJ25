@@ -1,16 +1,26 @@
+using System;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameCamera : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Transform targetTransform;
+
+    public void FollowCar(Car car)
     {
-        
+        this.targetTransform = car.CameraPoint;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        
+        if (this.targetTransform != null)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, 0.5f);
+            this.transform.rotation = quaternion.LookRotation(
+                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, 0.5f),
+                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, 0.5f));
+        }
     }
 }

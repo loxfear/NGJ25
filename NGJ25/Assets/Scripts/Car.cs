@@ -6,7 +6,12 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     [SerializeField] 
-    private float speed = 1f; 
+    private float speed = 1f;
+
+    [SerializeField] 
+    private Transform cameraPoint;
+
+    public Transform CameraPoint => this.cameraPoint;
     
     private Track currentTrack;
 
@@ -14,10 +19,9 @@ public class Car : MonoBehaviour
 
     private float position;
     
-    public void Initialize(Track track, PlayerController playerController)
+    public void Initialize(Track track)
     {
         this.currentTrack = track;
-        this.playerController = playerController;
         this.currentTrack.Initialize();
         
         this.transform.SetParent(track.SplineExtrude.transform);
@@ -29,7 +33,7 @@ public class Car : MonoBehaviour
         {
             this.transform.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
             this.transform.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(this.position), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(this.position));
-
+            
             var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.speed / 3.6f) * Time.deltaTime);
 
             this.position += deltaProgress;
