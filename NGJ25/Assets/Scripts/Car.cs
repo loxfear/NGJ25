@@ -10,6 +10,9 @@ public class Car : MonoBehaviour
 
     [SerializeField] 
     private Transform cameraPoint;
+    
+    [SerializeField] 
+    private Transform reference;
 
     public Transform CameraPoint => this.cameraPoint;
     
@@ -19,6 +22,8 @@ public class Car : MonoBehaviour
 
     private float position;
     private PlayerControls playerControls;
+    
+    private Vector3 offset;
 
     public void Initialize(Track track)
     {
@@ -37,12 +42,17 @@ public class Car : MonoBehaviour
             movement = this.playerControls.Player.Move.ReadValue<Vector2>();
         }
         
-        Debug.LogError(movement);
-        
         if (this.currentTrack != null)
         {
-            this.transform.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
-            this.transform.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(this.position), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(this.position));
+            this.reference.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
+            this.reference.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(this.position), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(this.position));
+
+            this.transform.position = this.reference.TransformPoint(this.offset);
+            this.transform.rotation = this.reference.transform.rotation;
+
+            this.offset.x += movement.x;
+
+            this.offset.x = Mathf.Clamp(this.offset.x, -this.currentTrack.Width / 2f, this.currentTrack.Width / 2f);
             
             var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.speed / 3.6f) * Time.deltaTime * movement.y);
 

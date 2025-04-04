@@ -1,8 +1,11 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Splines;
 
 public class Track : MonoBehaviour
 {
+    public float Width => this.splineExtrude.Radius;
+
     [SerializeField]
     private SplineExtrude splineExtrude;
     
