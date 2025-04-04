@@ -18,7 +18,8 @@ public class Car : MonoBehaviour
     private PlayerController playerController;
 
     private float position;
-    
+    private PlayerControls playerControls;
+
     public void Initialize(Track track)
     {
         this.currentTrack = track;
@@ -29,12 +30,21 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        var movement = Vector2.zero;
+
+        if (this.playerControls != null)
+        {
+            movement = this.playerControls.Player.Move.ReadValue<Vector2>();
+        }
+        
+        Debug.LogError(movement);
+        
         if (this.currentTrack != null)
         {
             this.transform.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
             this.transform.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(this.position), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(this.position));
             
-            var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.speed / 3.6f) * Time.deltaTime);
+            var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.speed / 3.6f) * Time.deltaTime * movement.y);
 
             this.position += deltaProgress;
 
@@ -43,5 +53,10 @@ public class Car : MonoBehaviour
                 this.position -= 1f;
             }
         }
+    }
+
+    public void SetControls(PlayerControls playerControls)
+    {
+        this.playerControls = playerControls;
     }
 }
