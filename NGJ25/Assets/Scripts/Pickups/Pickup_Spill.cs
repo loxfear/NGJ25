@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Pickup_Spill : MonoBehaviour,IPickUp
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GameManager _manager;
     void Start()
     {
-        
+        _manager = FindFirstObjectByType<GameManager>();
     }
 
     // Update is called once per frame
