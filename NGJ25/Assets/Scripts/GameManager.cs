@@ -25,11 +25,16 @@ public class GameManager : MonoBehaviour
         
         this.localTrack.Initialize();
 
+        var playerCamera = FindFirstObjectByType<GameCamera>();
+
         this.localPlayer = Instantiate(this.playerControllerPrefab);
+
+        this.localPlayer.Initialize(playerCamera);
         
-        this.localCar = Instantiate(this.carPrefab);
+        var localCar = Instantiate(this.carPrefab);
         
-        this.localCar.Initialize(this.localTrack, this.localPlayer);
+        localCar.Initialize(this.localTrack);
+
+        this.localPlayer.SetCar(localCar);
     }
-    
 }
