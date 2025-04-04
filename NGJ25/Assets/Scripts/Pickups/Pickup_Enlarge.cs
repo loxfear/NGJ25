@@ -9,6 +9,7 @@ public class Pickup_Enlarge : MonoBehaviour,IPickUp
     private float enlargedSize = 2.0f;
     [SerializeField]
     private float resetTime = 5.0f;
+    private Collision _collided;
     void Start()
     {
         _manager = FindFirstObjectByType<GameManager>();
@@ -23,17 +24,18 @@ public class Pickup_Enlarge : MonoBehaviour,IPickUp
     public void Consume()
     {
         Debug.Log(" Pickup_Enlarge Consumed");
-        _manager.LocalCar.transform.localScale = Vector3.one * enlargedSize;
+        _collided.transform.localScale = Vector3.one * enlargedSize;
         Invoke("Reset",resetTime);
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        
+        _collided = collision;
+        Consume();
     }
 
     private void Reset()
     {
-        _manager.LocalCar.transform.localScale = Vector3.one;
+        _collided.transform.localScale = Vector3.one;
     }
 }
