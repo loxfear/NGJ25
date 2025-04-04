@@ -6,7 +6,10 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     [SerializeField] 
-    private float speed = 1f;
+    private float speed = 120f;
+    
+    [SerializeField] 
+    private Vector2 acceleration = new Vector2(10f, 10f);
 
     [SerializeField] 
     private Transform cameraPoint;
@@ -24,6 +27,8 @@ public class Car : MonoBehaviour
     private PlayerControls playerControls;
     
     private Vector3 offset;
+
+    private Vector2 currentSpeed;
 
     public void Initialize(Track track)
     {
@@ -50,11 +55,17 @@ public class Car : MonoBehaviour
             this.transform.position = this.reference.TransformPoint(this.offset);
             this.transform.rotation = this.reference.transform.rotation;
 
-            this.offset.x += movement.x;
+            this.currentSpeed.x += this.acceleration.x * Time.deltaTime * movement.x;
+            
+            this.offset.x += this.currentSpeed.x;
 
             this.offset.x = Mathf.Clamp(this.offset.x, -this.currentTrack.Width / 2f, this.currentTrack.Width / 2f);
+
+            this.currentSpeed.y += this.acceleration.y * Time.deltaTime * movement.y;
+
+            this.currentSpeed.y = Mathf.Clamp(this.currentSpeed.y, -this.speed, this.speed);
             
-            var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.speed / 3.6f) * Time.deltaTime * movement.y);
+            var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.currentSpeed.y / 3.6f) * Time.deltaTime);
 
             this.position += deltaProgress;
 
