@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private PlayerController localPlayer;
     
     private Car localCar;
+
+    private PickupGenerator pickupGenerator;
     
     private void Awake()
     {
@@ -33,5 +35,10 @@ public class GameManager : MonoBehaviour
         localCar.Initialize(this.localTrack);
 
         this.localPlayer.SetCar(localCar);
+
+        this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
+        
+        this.pickupGenerator.Initialize(localTrack.SplineExtrude);
+
     }
 }
