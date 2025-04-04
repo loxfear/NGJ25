@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,8 +32,14 @@ public class EnvironmentSetter : MonoBehaviour
     [SerializeField] private AudioSource safeMusic;
     
     private bool hasLoaded = false;
-    
-    
+
+
+    private void Awake()
+    {
+        LoadEnvironmentData();
+    }
+
+
     //run in editor
     [ContextMenu("Load Environment Data")]
     public void LoadEnvironmentData()
@@ -62,16 +69,14 @@ public class EnvironmentSetter : MonoBehaviour
             RenderSettings.fogColor = safeFogColor;
             RenderSettings.fogEndDistance = safeFogEndDistance;
             directionalLight.color = safeLightColor;
-            safeMusic.Play();
-            dangerMusic.Stop();
+
         }
         else
         {
             RenderSettings.fogColor = dangerFogColor;
             RenderSettings.fogEndDistance = dangerFogEndDistance;
             directionalLight.color = dangerLightColor;
-            safeMusic.Stop();
-            dangerMusic.Play();
+
         }
         currentFogEndDistance = RenderSettings.fogEndDistance * 0.9F;
         currentColor = RenderSettings.fogColor;
