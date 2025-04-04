@@ -1,16 +1,31 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Car carPrefab;
+    
+    [SerializeField]
+    private PlayerController playerControllerPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private Track localTrack;
+    
+    private PlayerController localPlayer;
+    
+    private Car localCar;
+    
+    private void Awake()
     {
+        this.localTrack = FindFirstObjectByType<Track>();
         
+        this.localTrack.Initialize();
+
+        this.localPlayer = Instantiate(this.playerControllerPrefab);
+        
+        this.localCar = Instantiate(this.carPrefab);
+        
+        this.localCar.Initialize(this.localTrack, this.localPlayer);
     }
 }
