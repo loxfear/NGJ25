@@ -294,4 +294,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b230f47476f80946a8b3ef2222f5be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splineExtrude: {fileID: 0}
+  splineExtrude: {fileID: 7856283942456929357}
