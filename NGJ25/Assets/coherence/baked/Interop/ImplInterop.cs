@@ -177,6 +177,7 @@ namespace Coherence.Generated
                 case 150: return GenericFieldULong3.FromInterop(data, dataSize, simFrames, simFramesCount);
                 case 151: return GenericFieldColor0.FromInterop(data, dataSize, simFrames, simFramesCount);
                 case 152: return GenericFieldColor1.FromInterop(data, dataSize, simFrames, simFramesCount);
+                case 153: return _09a39f87cdb530a4ca3c2edbf31bec5c_15787724987447928277.FromInterop(data, dataSize, simFrames, simFramesCount);
             }
 
             throw new ArgumentException($"Unkown component type {type}", nameof(type));
@@ -1871,6 +1872,18 @@ namespace Coherence.Generated
                     val.value = orig.value;
 
                     updater.UpdateComponent(entity, componentType, val, 16, component.FieldsMask, component.StoppedMask, frames);
+
+                    return;
+                }
+                case 153:
+                {
+                    var orig = (_09a39f87cdb530a4ca3c2edbf31bec5c_15787724987447928277)component;
+                    var val = new _09a39f87cdb530a4ca3c2edbf31bec5c_15787724987447928277.Interop();
+
+                    val.linearVelocity = orig.linearVelocity;
+                    val.angularVelocity = orig.angularVelocity;
+
+                    updater.UpdateComponent(entity, componentType, val, 24, component.FieldsMask, component.StoppedMask, frames);
 
                     return;
                 }
