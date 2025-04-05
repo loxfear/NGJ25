@@ -7,8 +7,6 @@ public class PickupGenerator : MonoBehaviour
 {
     [SerializeField]
     private SplineInstantiate splineInstantiate;
-    
-    private float length;
 
     [SerializeField]
     private SplineInstantiate.InstantiableItem[] powerUps= new SplineInstantiate.InstantiableItem[6];
@@ -16,13 +14,14 @@ public class PickupGenerator : MonoBehaviour
     public void Initialize(SplineContainer container)
     {
         splineInstantiate.Container = container;
-        length = container.CalculateLength();
-        Spawn();
+        splineInstantiate.itemsToInstantiate = powerUps;
+        splineInstantiate.Clear();
+        
+        Invoke("Spawn",10);
     }
 
     private void Spawn()
     {
-        splineInstantiate.itemsToInstantiate = powerUps;
         splineInstantiate.UpdateInstances();
     }
 }
