@@ -46,7 +46,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineInstantiate: {fileID: 4828121208707297048}
-  powerUps: []
+  powerUps:
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 5936530324574278102, guid: 7fc2f667239d44041a829b865285f65d, type: 3}
+    probability: 0
+    Probability: 20
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 9109841024252120077, guid: deced20c5b3024086861afc0c2386952, type: 3}
+    probability: 0
+    Probability: 20
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 4693767624397535958, guid: e064c42da79644992a6edafb09fc23f4, type: 3}
+    probability: 0
+    Probability: 20
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 3902860346509105267, guid: 8c791128aa8504fb3be047f380eb2338, type: 3}
+    probability: 0
+    Probability: 20
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 18624499433270612, guid: d7de8700a58434ba08b6697eec18223c, type: 3}
+    probability: 0
+    Probability: 20
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 9046388855040419579, guid: f78a9ef598956432ab87d0591bab1e0a, type: 3}
+    probability: 0
+    Probability: 20
 --- !u!114 &4828121208707297048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,14 +87,14 @@ MonoBehaviour:
   m_ItemsToInstantiate: []
   m_Method: 1
   m_Space: 0
-  m_Spacing: {x: 1, y: 1}
+  m_Spacing: {x: 90, y: 130}
   m_Up: 1
   m_Forward: 2
   m_PositionOffset:
-    setup: 0
-    min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
-    randomX: 0
+    setup: 1
+    min: {x: -5, y: 1, z: 0}
+    max: {x: 5, y: 1, z: 0}
+    randomX: 1
     randomY: 0
     randomZ: 0
     space: 0
@@ -91,5 +115,5 @@ MonoBehaviour:
     randomZ: 0
     space: 0
   m_DeprecatedInstances: []
-  m_AutoRefresh: 1
+  m_AutoRefresh: 0
   m_Seed: -98926
