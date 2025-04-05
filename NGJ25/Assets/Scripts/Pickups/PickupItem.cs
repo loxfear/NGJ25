@@ -17,7 +17,7 @@ public class PickupItem : MonoBehaviour,IPickUp
     [SerializeField]
     private Pickup_Type Type;
 
-    private Collision _collided;
+    private Collider _other;
     
     [ShowIf("Type", Pickup_Type.Enlarge)]
     public float enlargedSize = 2.0f;
@@ -44,10 +44,10 @@ public class PickupItem : MonoBehaviour,IPickUp
             case Pickup_Type.SlowDown:
                 break;
             case Pickup_Type.Enlarge:
-                _collided.transform.localScale = Vector3.one * enlargedSize;
+                _other.transform.localScale = Vector3.one * enlargedSize;
                 break;
             case Pickup_Type.Shrink:
-                _collided.transform.localScale = Vector3.one * reducedSize;
+                _other.transform.localScale = Vector3.one * reducedSize;
                 break;
             case Pickup_Type.Spill:
                 break;
@@ -59,11 +59,12 @@ public class PickupItem : MonoBehaviour,IPickUp
         Invoke("Reset",resetTime);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        _collided = collision;
+        _other = other;
         Consume();
     }
+
     private void Reset()
     {
         switch (Type)
@@ -74,7 +75,7 @@ public class PickupItem : MonoBehaviour,IPickUp
                 break;
             case Pickup_Type.Enlarge:
             case Pickup_Type.Shrink:
-                _collided.transform.localScale = Vector3.one;
+                _other.transform.localScale = Vector3.one;
                 break;
             case Pickup_Type.Spill:
                 break;

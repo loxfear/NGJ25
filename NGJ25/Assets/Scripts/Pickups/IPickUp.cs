@@ -4,5 +4,5 @@ public interface IPickUp
 {
     void Consume();
 
-    void OnCollisionEnter(Collision collision);
+    void OnTriggerEnter(Collider other);
 }
