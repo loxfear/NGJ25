@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineExtrude: {fileID: 0}
-  checkpointPrefab: {fileID: 4045322633292439403, guid: 67657edb6aec34a9182a3d8ba40f416b, type: 3}
+  checkpointPrefab: {fileID: 3570326032685612436, guid: c7e620f09d73e8443b080fbb2bf9f737, type: 3}
+  finishLinePrefab: {fileID: 6868379235699765747, guid: 9b06135526112c04d96bfdbb6099b696, type: 3}
   m_Interpolation: 0.5
 --- !u!1 &7420445343071175262
 GameObject:

@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public TrackCheckpoints checkpointTracker;
     public CheckpointInstancer cpInstancer;
+    public GameObject FinishLine;
     
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
         this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
         
 //        checkpointSpline.UpdateInstances();
-        this.cpInstancer.Initialize(localTrack.SplineExtrude);
+        this.cpInstancer.Initialize(localTrack.SplineExtrude,this);
         this.checkpointTracker.Initialize(localCar.transform, this);
         
         
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour
             currentLap += 1;
             resetLap = true;
         }
+        if(currentLap == Laps-1)
+            FinishLine.SetActive(true);
             
         
         Debug.Log("Checkpoint" + currentCheckpoint);
@@ -107,6 +110,12 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
+    public void RaceWon()
+    {
+        Debug.Log("Game Over");
+    }
+
+    
 
     public void InitializeRaceType()
     {
