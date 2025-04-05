@@ -105,7 +105,7 @@ public class EnvironmentSetter : MonoBehaviour
             RenderSettings.fogColor = currentColor;
             directionalLight.color = currentLightColor;
             RenderSettings.fogEndDistance = currentFogEndDistance;
-            
+            /*
             //fade music
             if (isSafe)
             {
@@ -117,7 +117,7 @@ public class EnvironmentSetter : MonoBehaviour
                 safeMusic.volume = Mathf.Lerp(safeMusic.volume, 0, Time.deltaTime * transitionTime);
                 dangerMusic.volume = Mathf.Lerp(dangerMusic.volume, 1, Time.deltaTime * transitionTime);
             }
-            
+            */
         }
         else
         {
