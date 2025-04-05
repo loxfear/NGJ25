@@ -189,6 +189,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HandBreak"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ea0f0e1-97e7-4f1f-8965-5b4a95797d07"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -618,6 +627,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Break"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d26f7b37-a67e-41a4-951a-c53ac2f05a3d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HandBreak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67908b54-93f8-4729-b612-a6945e3076df"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HandBreak"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1216,6 +1247,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Accelerate = m_Player.FindAction("Accelerate", throwIfNotFound: true);
         m_Player_Break = m_Player.FindAction("Break", throwIfNotFound: true);
+        m_Player_HandBreak = m_Player.FindAction("HandBreak", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1320,6 +1352,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Accelerate;
     private readonly InputAction m_Player_Break;
+    private readonly InputAction m_Player_HandBreak;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1375,6 +1408,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Break".
         /// </summary>
         public InputAction @Break => m_Wrapper.m_Player_Break;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/HandBreak".
+        /// </summary>
+        public InputAction @HandBreak => m_Wrapper.m_Player_HandBreak;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1434,6 +1471,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Break.started += instance.OnBreak;
             @Break.performed += instance.OnBreak;
             @Break.canceled += instance.OnBreak;
+            @HandBreak.started += instance.OnHandBreak;
+            @HandBreak.performed += instance.OnHandBreak;
+            @HandBreak.canceled += instance.OnHandBreak;
         }
 
         /// <summary>
@@ -1478,6 +1518,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Break.started -= instance.OnBreak;
             @Break.performed -= instance.OnBreak;
             @Break.canceled -= instance.OnBreak;
+            @HandBreak.started -= instance.OnHandBreak;
+            @HandBreak.performed -= instance.OnHandBreak;
+            @HandBreak.canceled -= instance.OnHandBreak;
         }
 
         /// <summary>
@@ -1855,6 +1898,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBreak(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HandBreak" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHandBreak(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
