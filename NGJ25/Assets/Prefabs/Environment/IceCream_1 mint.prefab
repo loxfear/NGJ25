@@ -12,9 +12,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: cd937b7c555f0cf4aabe8fe67c45b77d, type: 2}
+    - target: {fileID: 880380392553869828, guid: 265370c27f6916b44b0dd41da9cbe679, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4014546268325712176, guid: 265370c27f6916b44b0dd41da9cbe679, type: 3}
       propertyPath: m_Name
-      value: IceCream_1 Variant
+      value: IceCream_1 mint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014546268325712176, guid: 265370c27f6916b44b0dd41da9cbe679, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6942423669051939355, guid: 265370c27f6916b44b0dd41da9cbe679, type: 3}
       propertyPath: m_LocalPosition.x
