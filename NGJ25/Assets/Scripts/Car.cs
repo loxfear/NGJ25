@@ -52,7 +52,7 @@ public class Car : MonoBehaviour
         this.transform.SetParent(track.SplineExtrude.transform);
 
         this.SetOnSpline(0);
-
+        
     }
 
     public void SetLastCheckpoint(GameObject CP)
@@ -92,7 +92,13 @@ public class Car : MonoBehaviour
 
             if (reset != 0)
             {
-                this.transform.position = lastCP.transform.position + new Vector3(0, 1, 0);
+                if(lastCP!=null)
+                    this.transform.position = lastCP.transform.position + new Vector3(0, 1, 0);
+                else
+                {
+                    this.SetOnSpline(0);
+                    this.transform.position += new Vector3(0, 1, 0);
+                }
             }
             
             foreach (var wheel in this.wheels)
