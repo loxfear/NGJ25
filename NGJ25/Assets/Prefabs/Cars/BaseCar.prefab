@@ -938,6 +938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnimeParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 4651586088960510732, guid: 0ac30d84d6687c7469d665caa06e33b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
