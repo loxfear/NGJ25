@@ -24,6 +24,9 @@ public class Car : MonoBehaviour
     
     [SerializeField] 
     public float centreOfGravityOffset = -1f;    
+    
+    [SerializeField] 
+    private float handBreakMult = 0.5f;
 
     [SerializeField] 
     private Transform cameraPoint;
@@ -43,7 +46,7 @@ public class Car : MonoBehaviour
     private PlayerController playerController;
     
     private PlayerControls playerControls;
-    
+
     public void Initialize(Track track)
     {
         this.currentTrack = track;
@@ -73,9 +76,17 @@ public class Car : MonoBehaviour
     {
         var movement = Vector2.zero;
 
+        var breaking = 0f;
+
         if (this.playerControls != null)
         {
             movement = this.playerControls.Player.Move.ReadValue<Vector2>();
+            breaking = this.playerControls.Player.Jump.ReadValue<float>();
+        }
+
+        foreach (var wheel in this.wheels)
+        {
+            wheel.SetStiffnessMult(1f - breaking * this.handBreakMult);
         }
         
         if (this.currentTrack != null)

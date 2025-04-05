@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Wheel : MonoBehaviour
@@ -22,12 +23,21 @@ public class Wheel : MonoBehaviour
 
     [SerializeField] 
     private ParticleSystem driftParticleSystem;
-    
+
+    private float forwardStiffness;
+    private float sidewaysStiffness;
+
     public bool Steerable => this.steerable;
     
     public bool Motorized => this.motorized;
     
     public WheelCollider WheelCollider => this.wheelCollider;
+
+    private void Awake()
+    {
+        this.forwardStiffness = this.wheelCollider.forwardFriction.stiffness;
+        this.sidewaysStiffness = this.wheelCollider.sidewaysFriction.stiffness;
+    }
 
     public void UpdateVisuals(Car car, Vector3 linearVelocity)
     {
@@ -51,6 +61,16 @@ public class Wheel : MonoBehaviour
         {
             main.startSpeed = 0;
             emission.rateOverDistance = 0;
+        }
+    }
+
+    public void SetStiffnessMult(float breaking)
+    {
+        if (this.motorized)
+        {
+            var sidewaysFriction = this.wheelCollider.sidewaysFriction;
+            sidewaysFriction.stiffness = this.forwardStiffness * breaking;
+            this.wheelCollider.sidewaysFriction = sidewaysFriction;
         }
     }
 }
