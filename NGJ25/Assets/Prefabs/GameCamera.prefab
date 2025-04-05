@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedUi: {fileID: 4352437397520201761}
   lapCountUi: {fileID: 7239377098265417834}
+  lapTimerUi: {fileID: 4472117629139835358}
   placementUi: {fileID: 6466135930171352708}
   levelUi: {fileID: 4391587558800669096}
   lerpPositionMult: 0.5
@@ -263,6 +264,17 @@ MonoBehaviour:
 --- !u!114 &4391587558800669096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4255652279245767487, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4472117629139835358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4174053885070304073, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
   m_PrefabInstance: {fileID: 575634669606812311}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

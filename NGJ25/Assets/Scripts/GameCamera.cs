@@ -14,6 +14,9 @@ public class GameCamera : MonoBehaviour
     private TextMeshProUGUI lapCountUi;
     
     [SerializeField]
+    private TextMeshProUGUI lapTimerUi;
+    
+    [SerializeField]
     private TextMeshProUGUI placementUi;
     
     [SerializeField]
@@ -37,6 +40,8 @@ public class GameCamera : MonoBehaviour
     private Car car;
 
     private float startFov;
+    private bool lapReset;
+    private float lapTimeSnapshot;
 
     private void Awake()
     {
@@ -61,10 +66,16 @@ public class GameCamera : MonoBehaviour
             
             this.speedUi.SetText((Mathf.Round(this.car.CurrentSpeed * this.car.MaxSpeed)).ToString());
         }
+
+        var currentLaptime = Time.time - lapTimeSnapshot;
+        this.lapTimerUi.SetText(currentLaptime.ToString("00.00"));
     }
 
-    public void UpdateLaps(string laps)
+    public void UpdateLaps(string laps, bool lapReset)
     {
-        lapCountUi.text = laps;
+        lapCountUi.SetText(laps);
+        if (lapReset)
+            lapTimeSnapshot = Time.time;
+
     }
 }

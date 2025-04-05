@@ -133,8 +133,8 @@ MonoBehaviour:
   localPlayer: {fileID: 8222810878225581529}
   gameCamera: {fileID: 4454289234365292057}
   pickupGenerator: {fileID: 1944518985322874805}
-  raceType: 0
-  Laps: 2
+  raceType: 1
+  Laps: 3
   checkpointTracker: {fileID: 8099732697906122402}
   cpInstancer: {fileID: 1628483734544123031}
 --- !u!1001 &1528088642789718360

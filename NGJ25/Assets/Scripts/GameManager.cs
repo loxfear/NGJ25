@@ -67,14 +67,20 @@ public class GameManager : MonoBehaviour
     public void OnCheckpointhit()
     {
         currentCheckpoint += 1;
-        
+        bool resetLap = false;
         if (currentCheckpoint % 3 == 0)
+        {
             currentLap += 1;
+            resetLap = true;
+        }
+            
         
         Debug.Log("Checkpoint" + currentCheckpoint);
         Debug.Log("Lap" + currentLap);
         
-        gameCamera.UpdateLaps(currentLap+ "/"+Laps);
+        gameCamera.UpdateLaps(currentLap+ "/"+Laps,resetLap);
+        
+        //To Do when lap get complete 
     }
     private void GameStart()
     {
@@ -109,7 +115,7 @@ public class GameManager : MonoBehaviour
             case RaceType.Laps:
                 currentLap = 0;
                 currentCheckpoint = 0;
-                gameCamera.UpdateLaps(currentLap+ "/"+Laps);
+                gameCamera.UpdateLaps(currentLap+ "/"+Laps,true);
                 break;
             case RaceType.Sprint:
                 break;
