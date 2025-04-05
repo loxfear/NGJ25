@@ -92,6 +92,7 @@ MonoBehaviour:
   steeringRange: 50
   steeringRangeAtMaxSpeed: 50
   centreOfGravityOffset: -1
+  handBreakMult: 2
   cameraPoint: {fileID: 5102254997074751832}
   currentRigidbody: {fileID: -2659019086261623339}
   wheels:
@@ -130,7 +131,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1500
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.01
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
