@@ -85,11 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e021d60355a50498b19b6e1041893f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorTorque: 2000
-  brakeTorque: 2000
+  motorTorque: 5500
+  brakeTorque: 5500
   maxSpeed: 120
-  steeringRange: 30
-  steeringRangeAtMaxSpeed: 10
+  steeringRange: 45
+  steeringRangeAtMaxSpeed: 35
   centreOfGravityOffset: -1
   cameraPoint: {fileID: 5102254997074751832}
   currentRigidbody: {fileID: -2659019086261623339}
