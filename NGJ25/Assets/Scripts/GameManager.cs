@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("Checkpoint" + currentCheckpoint);
         Debug.Log("Lap" + currentLap);
+        
+        gameCamera.UpdateLaps(currentLap+ "/"+Laps);
     }
     private void GameStart()
     {
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
             case RaceType.Laps:
                 currentLap = 0;
                 currentCheckpoint = 0;
+                gameCamera.UpdateLaps(currentLap+ "/"+Laps);
                 break;
             case RaceType.Sprint:
                 break;

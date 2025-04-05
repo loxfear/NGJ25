@@ -62,4 +62,9 @@ public class GameCamera : MonoBehaviour
             this.speedUi.SetText((Mathf.Round(this.car.CurrentSpeed * this.car.MaxSpeed)).ToString());
         }
     }
+
+    public void UpdateLaps(string laps)
+    {
+        lapCountUi.text = laps;
+    }
 }
