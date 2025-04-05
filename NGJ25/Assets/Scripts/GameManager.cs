@@ -8,27 +8,25 @@ public class GameManager : MonoBehaviour
     private Car carPrefab;
     
     [SerializeField]
-    private PlayerController playerControllerPrefab;
+    private PlayerController localPlayer;
+    
+    [SerializeField]
+    private GameCamera gameCamera;
+    
+    [SerializeField]
+    private PickupGenerator pickupGenerator;
 
     private Track localTrack;
     
-    private PlayerController localPlayer;
-    
     private Car localCar;
-
-    private PickupGenerator pickupGenerator;
     
     private void Awake()
     {
         this.localTrack = FindFirstObjectByType<Track>();
         
         this.localTrack.Initialize();
-
-        var playerCamera = FindFirstObjectByType<GameCamera>();
-
-        this.localPlayer = Instantiate(this.playerControllerPrefab);
-
-        this.localPlayer.Initialize(playerCamera);
+        
+        this.localPlayer.Initialize(this.gameCamera);
         
         var localCar = Instantiate(this.carPrefab);
         
@@ -39,6 +37,5 @@ public class GameManager : MonoBehaviour
         this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
         
         this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
-
     }
 }
