@@ -57,6 +57,8 @@ MonoBehaviour:
   fovMult: 1.5
   fovLerp: 0.5
   mainCamera: {fileID: 9038292107221170033}
+  HUDActive: {fileID: 1429332157019279633}
+  HUDFinished: {fileID: 8755082065213811079}
   notificationTransform: {fileID: 8014825423978321998}
   notification_gameFinished: {fileID: 4641782774003805763, guid: 22c14f5b5cbf4cc47a9414322ca5bfee, type: 3}
   notification_pickupSize: {fileID: 8426796004125407941, guid: abe8b1bcb53682b499233151805c0910, type: 3}
@@ -324,6 +326,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+--- !u!1 &1429332157019279633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1453275820733590406, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4352437397520201761 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4295280030151410358, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
@@ -387,5 +394,10 @@ MonoBehaviour:
 --- !u!224 &8014825423978321998 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7550128561398440665, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8755082065213811079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9114542852110963472, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
   m_PrefabInstance: {fileID: 575634669606812311}
   m_PrefabAsset: {fileID: 0}
