@@ -1,6 +1,7 @@
 using System;
 using Coherence.Toolkit;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -13,9 +14,12 @@ public class Car : MonoBehaviour
 
     [SerializeField] 
     private Transform cameraPoint;
-    
+
     [SerializeField] 
-    private Transform reference;
+    private Rigidbody currentRigidbody;
+
+    [SerializeField] 
+    private Wheel wheels;
 
     public Transform CameraPoint => this.cameraPoint;
     
@@ -36,6 +40,20 @@ public class Car : MonoBehaviour
         this.currentTrack.Initialize();
         
         this.transform.SetParent(track.SplineExtrude.transform);
+
+        this.SetOnSpline(0);
+    }
+
+    private void SetOnSpline(float value)
+    {
+        this.transform.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(value);
+        this.transform.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(value), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(value));
+        this.transform.position = this.transform.TransformPoint(this.currentTrack.SplineExtrude.Container.EvaluateUpVector(value) * 0.25f);
+    }
+    
+    public void SetControls(PlayerControls playerControls)
+    {
+        this.playerControls = playerControls;
     }
 
     private void Update()
@@ -49,35 +67,7 @@ public class Car : MonoBehaviour
         
         if (this.currentTrack != null)
         {
-            this.reference.position = this.currentTrack.SplineExtrude.Container.EvaluatePosition(this.position);
-            this.reference.rotation = quaternion.LookRotation(this.currentTrack.SplineExtrude.Container.EvaluateTangent(this.position), this.currentTrack.SplineExtrude.Container.EvaluateUpVector(this.position));
-
-            this.transform.position = this.reference.TransformPoint(this.offset);
-            this.transform.rotation = this.reference.transform.rotation;
-
-            this.currentSpeed.x += this.acceleration.x * Time.deltaTime * movement.x;
-            
-            this.offset.x += this.currentSpeed.x;
-
-            this.offset.x = Mathf.Clamp(this.offset.x, -this.currentTrack.Width / 2f, this.currentTrack.Width / 2f);
-
-            this.currentSpeed.y += this.acceleration.y * Time.deltaTime * movement.y;
-
-            this.currentSpeed.y = Mathf.Clamp(this.currentSpeed.y, -this.speed, this.speed);
-            
-            var deltaProgress = this.currentTrack.DeltaSpeedToProgress((this.currentSpeed.y / 3.6f) * Time.deltaTime);
-
-            this.position += deltaProgress;
-
-            if (this.position > 1f)
-            {
-                this.position -= 1f;
-            }
+                
         }
-    }
-
-    public void SetControls(PlayerControls playerControls)
-    {
-        this.playerControls = playerControls;
     }
 }
