@@ -25,7 +25,7 @@ namespace Coherence.Generated
     using UnityEngine.Scripting;
     
     [UnityEngine.Scripting.Preserve]
-    public class Binding_09a39f87cdb530a4ca3c2edbf31bec5c_307dcaefdc394f2d9a2aec1f0960671b : PositionBinding
+    public class Binding_09a39f87cdb530a4ca3c2edbf31bec5c_ab7e695e9a794766a9a074dc84259a43 : PositionBinding
     {   
         private global::UnityEngine.Transform CastedUnityComponent;
 
@@ -78,7 +78,7 @@ namespace Coherence.Generated
     }
     
     [UnityEngine.Scripting.Preserve]
-    public class Binding_09a39f87cdb530a4ca3c2edbf31bec5c_58049ed1b4fd42d9a3bb7a5d2e14824f : RotationBinding
+    public class Binding_09a39f87cdb530a4ca3c2edbf31bec5c_f6baf0ba84c148a580390e87ab2a1206 : RotationBinding
     {   
         private global::UnityEngine.Transform CastedUnityComponent;
 
@@ -142,8 +142,8 @@ namespace Coherence.Generated
         
         private readonly Dictionary<string, Binding> bakedValueBindings = new Dictionary<string, Binding>()
         {
-            ["307dcaefdc394f2d9a2aec1f0960671b"] = new Binding_09a39f87cdb530a4ca3c2edbf31bec5c_307dcaefdc394f2d9a2aec1f0960671b(),
-            ["58049ed1b4fd42d9a3bb7a5d2e14824f"] = new Binding_09a39f87cdb530a4ca3c2edbf31bec5c_58049ed1b4fd42d9a3bb7a5d2e14824f(),
+            ["ab7e695e9a794766a9a074dc84259a43"] = new Binding_09a39f87cdb530a4ca3c2edbf31bec5c_ab7e695e9a794766a9a074dc84259a43(),
+            ["f6baf0ba84c148a580390e87ab2a1206"] = new Binding_09a39f87cdb530a4ca3c2edbf31bec5c_f6baf0ba84c148a580390e87ab2a1206(),
         };
         
         private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings = new Dictionary<string, Action<CommandBinding, CommandsHandler>>();
