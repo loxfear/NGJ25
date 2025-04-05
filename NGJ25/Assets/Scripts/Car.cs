@@ -96,7 +96,7 @@ public class Car : MonoBehaviour
 
             foreach (var wheel in wheels)
             {
-                wheel.UpdateVisuals();
+                wheel.UpdateVisuals(this, this.currentRigidbody.linearVelocity);
                 
                 if (wheel.Steerable)
                 {
