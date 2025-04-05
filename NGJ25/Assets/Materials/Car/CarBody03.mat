@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CarBody03
-  m_Shader: {fileID: -6465566751694194690, guid: df13aa008e5bf7a47a9a538d042346d2, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ee57e5c8bf71eca4aa3be7f7f3fa19d9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -84,8 +84,10 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_4eaa9d60617e42ff955ea36568f502e1: 0.01
+    - Vector1_5002c30788284d43b0109d651e9dda13: 0.4
+    - Vector1_d460ba690fbe457bb3e6bb789d20ffcc: 0.32
     - Vector1_e53cc22f228e4b5ebe14d9c0be2947f7: 0.5
-    - Vector1_f810d746a98c42b5b31abc23b3845759: 0.6
+    - Vector1_f810d746a98c42b5b31abc23b3845759: 0.41
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
@@ -97,13 +99,14 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Damage: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FakeTop_Light: 0
-    - _Fresnel_Mult: 0
+    - _Fresnel_Mult: 1.68
     - _GlossMapScale: 1
     - _Glossiness: 0.5733945
     - _GlossyReflections: 1
@@ -127,6 +130,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - Color_29c583623a3a451db5d84844504aa6cd: {r: 1, g: 1, b: 1, a: 0}
+    - Color_b8b12e784fca457a861dba341b489fe9: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
     - _BaseColor: {r: 0.90635145, g: 0.8030942, b: 0.87438726, a: 1}
     - _Color: {r: 0.90635145, g: 0.8030942, b: 0.87438726, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}

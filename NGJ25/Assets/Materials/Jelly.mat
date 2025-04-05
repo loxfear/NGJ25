@@ -168,7 +168,7 @@ Material:
     - Vector2_B43F4B9F: {r: 0.59, g: 0.98, b: 0, a: 0}
     - Vector2_EC96D123: {r: 0, g: 5.8, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.99371064, g: 0.09062131, b: 0.11516186, a: 0}
+    - _Color: {r: 0.99215686, g: 0.41174513, b: 0.4268862, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowColor: {r: 0.899371, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
