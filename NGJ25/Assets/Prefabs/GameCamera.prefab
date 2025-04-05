@@ -57,6 +57,7 @@ MonoBehaviour:
   fovMult: 1.5
   fovLerp: 0.5
   mainCamera: {fileID: 9038292107221170033}
+  warpSpeed: {fileID: 2239143660582400342}
   HUDActive: {fileID: 1429332157019279633}
   HUDFinished: {fileID: 8755082065213811079}
   notificationTransform: {fileID: 8014825423978321998}
@@ -259,6 +260,11 @@ PrefabInstance:
 --- !u!4 &2223385035631465819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2205876726027428721, guid: 0ac30d84d6687c7469d665caa06e33b9, type: 3}
+  m_PrefabInstance: {fileID: 20219851843909162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2239143660582400342 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2257671835603027836, guid: 0ac30d84d6687c7469d665caa06e33b9, type: 3}
   m_PrefabInstance: {fileID: 20219851843909162}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &575634669606812311
