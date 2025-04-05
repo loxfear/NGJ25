@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,6 +21,16 @@ public class GameManager : MonoBehaviour
     
     private Car localCar;
     
+    //Race Type Related
+    
+    [SerializeField]
+    private RaceType raceType;
+    
+    [ShowIf("raceType", RaceType.Laps)]
+    public int Laps = 2;
+
+    private int currentLap;
+    
     private void Awake()
     {
         this.localTrack = FindFirstObjectByType<Track>();
@@ -37,5 +48,31 @@ public class GameManager : MonoBehaviour
         this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
         
         this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
+    }
+    
+    public void OnRaceWon()
+    {
+        
+    }
+    
+    public void OnRaceLoss()
+    {
+        
+    }
+    
+    public void InitializeRaceType()
+    {
+        switch (raceType)
+        {
+            case RaceType.Laps:
+                currentLap = 0;
+                break;
+            case RaceType.Sprint:
+                break;
+            case RaceType.Elimination:
+                break;
+            
+        }
+        
     }
 }

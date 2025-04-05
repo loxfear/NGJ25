@@ -2,15 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public enum Pickup_Type
-{
-    SpeedUp,
-    SlowDown,
-    Enlarge,
-    Shrink,
-    Spill,
-    Squirt
-}
+
 
 public class PickupItem : MonoBehaviour,IPickUp
 {
