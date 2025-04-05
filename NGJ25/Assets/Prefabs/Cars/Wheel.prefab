@@ -173,3 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0da562ba6420d4c8fee56fe48ef1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steerable: 0
+  motorized: 0
+  wheelCollider: {fileID: 8449137378347944533}

@@ -3,14 +3,27 @@ using Coherence.Toolkit;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Car : MonoBehaviour
 {
     [SerializeField] 
-    private float speed = 120f;
+    public float motorTorque = 2000f;
     
     [SerializeField] 
-    private Vector2 acceleration = new Vector2(10f, 10f);
+    public float brakeTorque = 2000f;    
+    
+    [SerializeField] 
+    private float maxSpeed = 120f;
+    
+    [SerializeField] 
+    public float steeringRange = 30f;
+    
+    [SerializeField] 
+    public float steeringRangeAtMaxSpeed = 10f;
+    
+    [SerializeField] 
+    public float centreOfGravityOffset = -1f;    
 
     [SerializeField] 
     private Transform cameraPoint;
@@ -19,7 +32,7 @@ public class Car : MonoBehaviour
     private Rigidbody currentRigidbody;
 
     [SerializeField] 
-    private Wheel wheels;
+    private Wheel[] wheels;
 
     public Transform CameraPoint => this.cameraPoint;
     
@@ -37,8 +50,11 @@ public class Car : MonoBehaviour
     public void Initialize(Track track)
     {
         this.currentTrack = track;
-        this.currentTrack.Initialize();
         
+        var centerOfMass = this.currentRigidbody.centerOfMass;
+        centerOfMass.y += centreOfGravityOffset;
+        this.currentRigidbody.centerOfMass = centerOfMass;
+
         this.transform.SetParent(track.SplineExtrude.transform);
 
         this.SetOnSpline(0);
@@ -56,7 +72,7 @@ public class Car : MonoBehaviour
         this.playerControls = playerControls;
     }
 
-    private void Update()
+    void FixedUpdate()
     {
         var movement = Vector2.zero;
 
@@ -65,9 +81,42 @@ public class Car : MonoBehaviour
             movement = this.playerControls.Player.Move.ReadValue<Vector2>();
         }
         
+        Debug.Log(movement);
+        
         if (this.currentTrack != null)
         {
-                
+            var vInput = movement.y;
+            var hInput = movement.x;
+
+            var forwardSpeed = Vector3.Dot(transform.forward, this.currentRigidbody.linearVelocity);
+            var speedFactor = Mathf.InverseLerp(0, this.maxSpeed, Mathf.Abs(forwardSpeed));
+
+            var currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+            var currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
+
+            bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+
+            foreach (var wheel in wheels)
+            {
+                if (wheel.Steerable)
+                {
+                    wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
+                }
+
+                if (isAccelerating)
+                {
+                    if (wheel.Motorized)
+                    {
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                    }
+                    wheel.WheelCollider.brakeTorque = 0f;
+                }
+                else
+                {
+                    wheel.WheelCollider.motorTorque = 0f;
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                }
+            }
         }
     }
 }

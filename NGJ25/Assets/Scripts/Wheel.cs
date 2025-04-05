@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private bool steerable;
+    
+    [SerializeField]
+    private bool motorized;
+    
+    [SerializeField]
+    private WheelCollider wheelCollider;
+    
+    public bool Steerable => this.steerable;
+    
+    public bool Motorized => this.motorized;
+    
+    public WheelCollider WheelCollider => this.wheelCollider;
 }
