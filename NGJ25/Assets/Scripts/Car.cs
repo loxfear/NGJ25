@@ -81,8 +81,6 @@ public class Car : MonoBehaviour
             movement = this.playerControls.Player.Move.ReadValue<Vector2>();
         }
         
-        Debug.Log(movement);
-        
         if (this.currentTrack != null)
         {
             var vInput = movement.y;

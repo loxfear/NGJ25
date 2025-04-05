@@ -131,7 +131,7 @@ WheelCollider:
   m_GameObject: {fileID: 8528669576780524615}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
