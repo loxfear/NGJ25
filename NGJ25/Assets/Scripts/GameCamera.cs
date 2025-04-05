@@ -99,4 +99,10 @@ public class GameCamera : MonoBehaviour
         var messageGameObject = Instantiate(notification_Pickup, notificationTransform);
         messageGameObject.GetComponent<PickupMessage>().Init(message);
     }
+
+    public void RaceOver()
+    {
+        HUDActive.SetActive(false);
+        HUDFinished.SetActive(true);
+    }
 }

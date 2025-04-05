@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
     public void RaceWon()
     {
         gameCamera.SpawnMessage("Game Over");
+        gameCamera.RaceOver();
     }
 
     public void PickUpMessage(string itemName)
