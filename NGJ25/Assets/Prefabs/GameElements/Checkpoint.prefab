@@ -186,6 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4261906151089420822}
   - component: {fileID: 6822330356881146433}
+  - component: {fileID: 4502638390115296416}
   m_Layer: 0
   m_Name: PoledancingFly
   m_TagString: Untagged
@@ -223,6 +224,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationAxis: {x: 0, y: 1, z: 0}
   rotationSpeed: 260
+--- !u!114 &4502638390115296416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999018831580352651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f591ea7bf20169489882cd4bd1eefe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobDistance: 1
+  bobSpeed: 2
 --- !u!1 &3570326032685612436
 GameObject:
   m_ObjectHideFlags: 0
