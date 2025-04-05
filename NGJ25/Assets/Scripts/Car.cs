@@ -82,7 +82,8 @@ public class Car : MonoBehaviour
 
         if (this.playerControls != null)
         {
-            movement = this.playerControls.Player.Move.ReadValue<Vector2>();
+            movement.y = this.playerControls.Player.Accelerate.ReadValue<float>() - this.playerControls.Player.Break.ReadValue<float>();
+            movement.x = this.playerControls.Player.Move.ReadValue<Vector2>().x;
             breaking = this.playerControls.Player.Jump.ReadValue<float>();
         }
 
