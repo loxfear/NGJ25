@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     private PickupGenerator pickupGenerator;
-
+    
+    [SerializeField]
+    private EnvironmentSetter environmentSetter;
+    
     private Track localTrack;
     
     private Car localCar;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public TrackCheckpoints checkpointTracker;
     public CheckpointInstancer cpInstancer;
+    public GameObject FinishLine;
     
     private void Awake()
     {
@@ -52,10 +56,12 @@ public class GameManager : MonoBehaviour
 
         this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
         
+        this.environmentSetter = FindFirstObjectByType<EnvironmentSetter>();
+        
         this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
         
 //        checkpointSpline.UpdateInstances();
-        this.cpInstancer.Initialize(localTrack.SplineExtrude);
+        this.cpInstancer.Initialize(localTrack.SplineExtrude,this);
         this.checkpointTracker.Initialize(localCar.transform, this);
         
         
@@ -73,8 +79,13 @@ public class GameManager : MonoBehaviour
             currentLap += 1;
             resetLap = true;
         }
-            
-        
+
+        if (currentLap == Laps - 1)
+        {
+            environmentSetter.isSafe = true;
+            FinishLine.SetActive(true);
+        }
+         
         Debug.Log("Checkpoint" + currentCheckpoint);
         Debug.Log("Lap" + currentLap);
         
@@ -107,6 +118,12 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
+    public void RaceWon()
+    {
+        Debug.Log("Game Over");
+    }
+
+    
 
     public void InitializeRaceType()
     {
