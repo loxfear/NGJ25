@@ -61,7 +61,7 @@ MonoBehaviour:
   HUDFinished: {fileID: 8755082065213811079}
   notificationTransform: {fileID: 8014825423978321998}
   notification_gameFinished: {fileID: 4641782774003805763, guid: 22c14f5b5cbf4cc47a9414322ca5bfee, type: 3}
-  notification_pickupSize: {fileID: 8426796004125407941, guid: abe8b1bcb53682b499233151805c0910, type: 3}
+  notification_Pickup: {fileID: 8426796004125407941, guid: abe8b1bcb53682b499233151805c0910, type: 3}
 --- !u!1 &3169467455928886512
 GameObject:
   m_ObjectHideFlags: 0

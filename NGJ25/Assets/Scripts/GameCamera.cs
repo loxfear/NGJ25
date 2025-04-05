@@ -50,7 +50,7 @@ public class GameCamera : MonoBehaviour
     private GameObject notification_gameFinished;
 
     [SerializeField]
-    private GameObject notification_pickupSize;
+    private GameObject notification_Pickup;
 
     private Car car;
 
@@ -92,5 +92,11 @@ public class GameCamera : MonoBehaviour
         if (lapReset)
             lapTimeSnapshot = Time.time;
 
+    }
+
+    public void SpawnMessage(string message)
+    {
+        var messageGameObject = Instantiate(notification_Pickup, notificationTransform);
+        messageGameObject.GetComponent<PickupMessage>().Init(message);
     }
 }

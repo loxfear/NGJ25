@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
         if (currentLap == Laps - 1)
         {
+            gameCamera.SpawnMessage("Final Lap");
             environmentSetter.isSafe = true;
             FinishLine.SetActive(true);
         }
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Checkpoint" + currentCheckpoint);
         Debug.Log("Lap" + currentLap);
         
-        gameCamera.UpdateLaps(currentLap+ "/"+Laps,resetLap);
+        gameCamera.UpdateLaps((currentLap+1)+ "/"+Laps,resetLap);
         
         //To Do when lap get complete 
     }
@@ -120,10 +121,13 @@ public class GameManager : MonoBehaviour
 
     public void RaceWon()
     {
-        Debug.Log("Game Over");
+        gameCamera.SpawnMessage("Game Over");
     }
 
-    
+    public void PickUpMessage(string itemName)
+    {
+        gameCamera.SpawnMessage(itemName +"!!!");
+    }
 
     public void InitializeRaceType()
     {
@@ -132,7 +136,8 @@ public class GameManager : MonoBehaviour
             case RaceType.Laps:
                 currentLap = 0;
                 currentCheckpoint = 0;
-                gameCamera.UpdateLaps(currentLap+ "/"+Laps,true);
+                gameCamera.UpdateLaps((currentLap+1)+ "/"+Laps,true);
+                gameCamera.SpawnMessage("Lets GOOO!!!!");
                 break;
             case RaceType.Sprint:
                 break;

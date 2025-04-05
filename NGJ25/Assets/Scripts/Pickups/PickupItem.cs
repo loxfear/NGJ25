@@ -27,6 +27,7 @@ public class PickupItem : MonoBehaviour,IPickUp
     private void Start()
     {
         particleSystem.SetActive(false);
+        _gameManager = FindFirstObjectByType<GameManager>();
     }
 
     public void Consume()
@@ -50,6 +51,7 @@ public class PickupItem : MonoBehaviour,IPickUp
         }
         Debug.Log(Type +" Consumed");
         particleSystem.SetActive(true);
+        _gameManager.PickUpMessage(Type.ToString());
         Invoke("Reset",resetTime);
     }
 
