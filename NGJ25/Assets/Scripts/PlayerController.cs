@@ -21,4 +21,9 @@ public class PlayerController : MonoBehaviour
         
         this.currentCar.SetControls(playerControls);
     }
+
+    public void ResetCar()
+    {
+        
+    }
 }

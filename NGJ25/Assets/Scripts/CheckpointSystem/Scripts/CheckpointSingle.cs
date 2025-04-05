@@ -18,12 +18,14 @@ public class CheckpointSingle : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<Car>(out Car player)) {
             trackCheckpoints.CarThroughCheckpoint(this, other.transform);
+            player.SetLastCheckpoint(this.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.TryGetComponent<Car>(out Car player)) {
             trackCheckpoints.CarThroughCheckpoint(this, collider.transform);
+            player.SetLastCheckpoint(this.gameObject);
         }
     }
 
