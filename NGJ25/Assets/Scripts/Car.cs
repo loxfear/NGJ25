@@ -96,6 +96,8 @@ public class Car : MonoBehaviour
 
             foreach (var wheel in wheels)
             {
+                wheel.UpdateVisuals();
+                
                 if (wheel.Steerable)
                 {
                     wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
