@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 2935183254001316031, guid: bad3c8eeb0d05624db524fe7bb913d84, type: 3}
+      propertyPath: lerpMult
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4240399073412260514, guid: bad3c8eeb0d05624db524fe7bb913d84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.917095
