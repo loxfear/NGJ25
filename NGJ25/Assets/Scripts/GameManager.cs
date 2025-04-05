@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int Laps = 2;
 
     private int currentLap;
+    private int currentCheckpoint;
 
     public TrackCheckpoints checkpointTracker;
     public CheckpointInstancer cpInstancer;
@@ -55,26 +56,57 @@ public class GameManager : MonoBehaviour
         
 //        checkpointSpline.UpdateInstances();
         this.cpInstancer.Initialize(localTrack.SplineExtrude);
-        this.checkpointTracker.Initialize(localCar.transform);
+        this.checkpointTracker.Initialize(localCar.transform, this);
+        
+        
+        InitializeRaceType();
+        
         
     }
-    
-    public void OnRaceWon()
+
+    public void OnCheckpointhit()
+    {
+        currentCheckpoint += 1;
+        
+        if (currentCheckpoint % 3 == 0)
+            currentLap += 1;
+        
+        Debug.Log("Checkpoint" + currentCheckpoint);
+        Debug.Log("Lap" + currentLap);
+    }
+    private void GameStart()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnDisable()
     {
         
     }
-    
-    public void OnRaceLoss()
+
+    private void RaceStart(object sender, EventArgs e)
     {
-        
+        throw new NotImplementedException();
     }
-    
+
+    private void RaceLoss(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void RaceWon(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+
     public void InitializeRaceType()
     {
         switch (raceType)
         {
             case RaceType.Laps:
                 currentLap = 0;
+                currentCheckpoint = 0;
                 break;
             case RaceType.Sprint:
                 break;

@@ -13,7 +13,9 @@ public class TrackCheckpoints : MonoBehaviour {
     private List<CheckpointSingle> checkpointSingleList;
     private List<int> nextCheckpointSingleIndexList;
 
-    public void Initialize(Transform localCar) {
+    private GameManager _gameManager;
+
+    public void Initialize(Transform localCar, GameManager manager) {
         Transform checkpointsTransform = transform.Find("Checkpoints");
 
         checkpointSingleList = new List<CheckpointSingle>();
@@ -31,6 +33,9 @@ public class TrackCheckpoints : MonoBehaviour {
         foreach (Transform carTransform in carTransformList) {
             nextCheckpointSingleIndexList.Add(0);
         }
+
+        _gameManager = manager;
+
     }
 
 
@@ -45,6 +50,7 @@ public class TrackCheckpoints : MonoBehaviour {
             nextCheckpointSingleIndexList[carTransformList.IndexOf(carTransform)]
                 = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
             OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
+            _gameManager.OnCheckpointhit();
         } else {
             // Wrong checkpoint
             Debug.Log("Wrong");
