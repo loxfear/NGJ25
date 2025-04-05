@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup_Edible_A
       objectReference: {fileID: 0}
+    - target: {fileID: 4442602237879827331, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c9bf8e21c500dfd498461f7e8bc6cfc2, type: 2}
     - target: {fileID: 5604134666221593850, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -51,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 5604134666221593850, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150652194906424767, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7930489750191747305, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
+      propertyPath: m_Name
+      value: Cube
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8265490948835487708, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
