@@ -57,6 +57,11 @@ MonoBehaviour:
   fovMult: 1.5
   fovLerp: 0.5
   mainCamera: {fileID: 9038292107221170033}
+  HUDActive: {fileID: 1429332157019279633}
+  HUDFinished: {fileID: 8755082065213811079}
+  notificationTransform: {fileID: 8014825423978321998}
+  notification_gameFinished: {fileID: 4641782774003805763, guid: 22c14f5b5cbf4cc47a9414322ca5bfee, type: 3}
+  notification_pickupSize: {fileID: 8426796004125407941, guid: abe8b1bcb53682b499233151805c0910, type: 3}
 --- !u!1 &3169467455928886512
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +269,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4240399073412260514}
     m_Modifications:
+    - target: {fileID: 1453275820733590406, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3513041637386511636, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -308,11 +317,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9114542852110963472, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+--- !u!1 &1429332157019279633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1453275820733590406, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4352437397520201761 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4295280030151410358, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
@@ -373,3 +391,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8014825423978321998 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7550128561398440665, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8755082065213811079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9114542852110963472, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
