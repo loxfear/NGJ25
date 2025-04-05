@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 public class GameCamera : MonoBehaviour
 {
+    [SerializeField]
+    private float lerpMult = 0.5f;
+    
     private Transform targetTransform;
 
     public void FollowCar(Car car)
@@ -17,10 +20,10 @@ public class GameCamera : MonoBehaviour
     {
         if (this.targetTransform != null)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, 0.5f);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, this.lerpMult);
             this.transform.rotation = quaternion.LookRotation(
-                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, 0.5f),
-                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, 0.5f));
+                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, this.lerpMult),
+                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, this.lerpMult));
         }
     }
 }
