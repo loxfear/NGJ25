@@ -21,6 +21,7 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -92,10 +93,10 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CastShadows: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _Cull: 1
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -128,9 +129,9 @@ Material:
     m_Colors:
     - Color_29c583623a3a451db5d84844504aa6cd: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 0.15074816, g: 0.15074816, b: 0.15074816, a: 1}
-    - _Color: {r: 0.15074813, g: 0.15074813, b: 0.15074813, a: 1}
+    - _Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowColor: {r: 0.6980392, g: 0.6980392, b: 0.6980392, a: 0}
+    - _ShadowColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
