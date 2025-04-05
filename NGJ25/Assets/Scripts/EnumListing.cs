@@ -13,6 +13,7 @@ public enum Pickup_Type
     Enlarge,
     Shrink,
     Spill,
-    Squirt
+    Squirt,
+    Edible
 }
 
