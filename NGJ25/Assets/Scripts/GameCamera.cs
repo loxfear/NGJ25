@@ -38,6 +38,12 @@ public class GameCamera : MonoBehaviour
     private Camera mainCamera;
 
     [SerializeField]
+    private GameObject HUDActive;
+
+    [SerializeField]
+    private GameObject HUDFinished;
+
+    [SerializeField]
     private Transform notificationTransform;
 
     [SerializeField]

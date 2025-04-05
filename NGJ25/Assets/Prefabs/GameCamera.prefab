@@ -267,6 +267,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4240399073412260514}
     m_Modifications:
+    - target: {fileID: 1453275820733590406, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3513041637386511636, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -309,6 +313,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345571582162043149, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114542852110963472, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
