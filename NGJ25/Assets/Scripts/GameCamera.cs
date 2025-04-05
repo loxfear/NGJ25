@@ -7,23 +7,40 @@ using UnityEngine.Serialization;
 public class GameCamera : MonoBehaviour
 {
     [SerializeField]
-    private float lerpMult = 0.5f;
-    
-    private Transform targetTransform;
+    private float lerpPositionMult = 0.5f;
+
+    [SerializeField]
+    private float lerpRotationMult = 0.5f;
+
+    [SerializeField] 
+    private Camera mainCamera;
+
+    private Car car;
+
+    private float startFov;
+
+    private void Awake()
+    {
+        this.startFov = this.mainCamera.fieldOfView;
+    }
 
     public void FollowCar(Car car)
     {
-        this.targetTransform = car.CameraPoint;
+        this.car = car;
     }
 
     private void FixedUpdate()
     {
-        if (this.targetTransform != null)
+        if (this.car.CameraPoint != null)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, this.lerpMult * Time.fixedDeltaTime);
+            this.transform.position = Vector3.Lerp(this.transform.position, this.car.CameraPoint.position, lerpPositionMult);
             this.transform.rotation = quaternion.LookRotation(
-                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, this.lerpMult * Time.fixedDeltaTime),
-                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, this.lerpMult * Time.fixedDeltaTime));
+                Vector3.Lerp(this.transform.forward, this.car.CameraPoint.forward, lerpRotationMult),
+                Vector3.Lerp(this.transform.up, this.car.CameraPoint.up, lerpRotationMult));
+
+            var distance = Vector3.Distance(this.transform.position, this.car.CameraPoint.position);
+
+            this.mainCamera.fieldOfView = Mathf.Max(this.startFov * distance, this.startFov);
         }
     }
 }
