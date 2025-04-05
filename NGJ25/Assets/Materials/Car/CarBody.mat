@@ -106,7 +106,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FakeTop_Light: 0
-    - _Fresnel_Mult: 1.68
+    - _Fresnel_Mult: 1.02
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
