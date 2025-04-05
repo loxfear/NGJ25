@@ -12,6 +12,9 @@ public class GameCamera : MonoBehaviour
     [SerializeField]
     private float lerpRotationMult = 0.5f;
 
+    [SerializeField]
+    private float fovMult = 2f;
+
     [SerializeField] 
     private Camera mainCamera;
 
@@ -38,9 +41,7 @@ public class GameCamera : MonoBehaviour
                 Vector3.Lerp(this.transform.forward, this.car.CameraPoint.forward, lerpRotationMult),
                 Vector3.Lerp(this.transform.up, this.car.CameraPoint.up, lerpRotationMult));
 
-            var distance = Vector3.Distance(this.transform.position, this.car.CameraPoint.position);
-
-            this.mainCamera.fieldOfView = Mathf.Max(this.startFov * distance, this.startFov);
+            this.mainCamera.fieldOfView = Mathf.Lerp(this.mainCamera.fieldOfView, Mathf.Max(this.startFov * this.car.CurrentSpeed * this.fovMult, this.startFov), 0.5f);
         }
     }
 }

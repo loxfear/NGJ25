@@ -36,17 +36,14 @@ public class Car : MonoBehaviour
 
     public Transform CameraPoint => this.cameraPoint;
     
+    public float CurrentSpeed { get; private set; }
+
     private Track currentTrack;
 
     private PlayerController playerController;
-
-    private float position;
+    
     private PlayerControls playerControls;
     
-    private Vector3 offset;
-
-    private Vector2 currentSpeed;
-
     public void Initialize(Track track)
     {
         this.currentTrack = track;
@@ -89,6 +86,8 @@ public class Car : MonoBehaviour
             var forwardSpeed = Vector3.Dot(transform.forward, this.currentRigidbody.linearVelocity);
             var speedFactor = Mathf.InverseLerp(0, this.maxSpeed, Mathf.Abs(forwardSpeed));
 
+            this.CurrentSpeed = forwardSpeed / this.maxSpeed;
+            
             var currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
             var currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
