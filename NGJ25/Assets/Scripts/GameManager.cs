@@ -2,6 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Splines;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
     public int Laps = 2;
 
     private int currentLap;
+
+    public TrackCheckpoints checkpointTracker;
+    public CheckpointInstancer cpInstancer;
     
     private void Awake()
     {
@@ -48,6 +52,11 @@ public class GameManager : MonoBehaviour
         this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
         
         this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
+        
+//        checkpointSpline.UpdateInstances();
+        this.cpInstancer.Initialize(localTrack.SplineExtrude);
+        this.checkpointTracker.Initialize(localCar.transform);
+        
     }
     
     public void OnRaceWon()
