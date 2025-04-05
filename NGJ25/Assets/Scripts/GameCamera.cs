@@ -37,6 +37,15 @@ public class GameCamera : MonoBehaviour
     [SerializeField] 
     private Camera mainCamera;
 
+    [SerializeField]
+    private Transform notificationTransform;
+
+    [SerializeField]
+    private GameObject notification_gameFinished;
+
+    [SerializeField]
+    private GameObject notification_pickupSize;
+
     private Car car;
 
     private float startFov;

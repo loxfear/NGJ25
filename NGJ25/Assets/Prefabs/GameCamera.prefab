@@ -57,6 +57,9 @@ MonoBehaviour:
   fovMult: 1.5
   fovLerp: 0.5
   mainCamera: {fileID: 9038292107221170033}
+  notificationTransform: {fileID: 8014825423978321998}
+  notification_gameFinished: {fileID: 4641782774003805763, guid: 22c14f5b5cbf4cc47a9414322ca5bfee, type: 3}
+  notification_pickupSize: {fileID: 8426796004125407941, guid: abe8b1bcb53682b499233151805c0910, type: 3}
 --- !u!1 &3169467455928886512
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,3 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8014825423978321998 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7550128561398440665, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
