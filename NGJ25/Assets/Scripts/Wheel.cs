@@ -35,19 +35,22 @@ public class Wheel : MonoBehaviour
         this.model.position = position;
         this.model.rotation = rotation;
 
+        var main = this.driftParticleSystem.main;
+        var emission = this.driftParticleSystem.emission;
+        
         if (this.wheelCollider.GetGroundHit(out var hit))
         {
             var drift = (Vector3.Angle(hit.forwardDir, linearVelocity) / 90f) - this.smokeCutoff;
 
             this.driftParticleSystem.transform.position = hit.point + hit.normal * 0.25f;
-
-            var main = this.driftParticleSystem.main;
-
+            
             main.startSpeed = linearVelocity.magnitude;
-
-            var emission = this.driftParticleSystem.emission;
-
             emission.rateOverDistance = drift * this.smokeMult;
+        }
+        else
+        {
+            main.startSpeed = 0;
+            emission.rateOverDistance = 0;
         }
     }
 }

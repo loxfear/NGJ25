@@ -14,17 +14,16 @@ public class GameCamera : MonoBehaviour
     public void FollowCar(Car car)
     {
         this.targetTransform = car.CameraPoint;
-        this.transform.SetParent(car.transform);
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (this.targetTransform != null)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, this.lerpMult * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, this.targetTransform.position, this.lerpMult * Time.fixedDeltaTime);
             this.transform.rotation = quaternion.LookRotation(
-                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, this.lerpMult * Time.deltaTime),
-                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, this.lerpMult * Time.deltaTime));
+                Vector3.MoveTowards(this.transform.forward, this.targetTransform.forward, this.lerpMult * Time.fixedDeltaTime),
+                Vector3.MoveTowards(this.transform.up, this.targetTransform.up, this.lerpMult * Time.fixedDeltaTime));
         }
     }
 }
