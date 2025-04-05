@@ -55,7 +55,7 @@ public class GameCamera : MonoBehaviour
             this.transform.position = Vector3.Lerp(this.transform.position, this.car.CameraPoint.position, lerpPositionMult);
             this.transform.rotation = quaternion.LookRotation(
                 Vector3.Lerp(this.transform.forward, this.car.CameraPoint.forward, lerpRotationMult),
-                Vector3.Lerp(this.transform.up, this.car.CameraPoint.up, lerpRotationMult));
+                Vector3.Lerp(this.transform.up, Vector3.up, lerpRotationMult));
 
             this.mainCamera.fieldOfView = Mathf.Lerp(this.mainCamera.fieldOfView, Mathf.Max(this.startFov * this.car.CurrentSpeed * this.fovMult, this.startFov), this.fovLerp);
             
