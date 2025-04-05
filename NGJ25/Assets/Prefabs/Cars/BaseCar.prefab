@@ -92,6 +92,7 @@ MonoBehaviour:
   steeringRange: 50
   steeringRangeAtMaxSpeed: 50
   centreOfGravityOffset: -1
+  handBreakMult: 0.7
   cameraPoint: {fileID: 5102254997074751832}
   currentRigidbody: {fileID: -2659019086261623339}
   wheels:
