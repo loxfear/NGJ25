@@ -22,6 +22,8 @@ public class PickupItem : MonoBehaviour,IPickUp
     [SerializeField] 
     private GameObject particleSystem;
 
+    private GameManager _gameManager;
+
     private void Start()
     {
         particleSystem.SetActive(false);
