@@ -37,6 +37,8 @@ public class Car : MonoBehaviour
     [SerializeField] 
     private Wheel[] wheels;
 
+    public float MaxSpeed => this.maxSpeed;
+
     public Transform CameraPoint => this.cameraPoint;
     
     public float CurrentSpeed { get; private set; }
