@@ -45,7 +45,7 @@ public class Wheel : MonoBehaviour
             this.driftParticleSystem.transform.position = hit.point + hit.normal * 0.25f;
             
             main.startSpeed = linearVelocity.magnitude;
-            emission.rateOverDistance = drift * this.smokeMult;
+            emission.rateOverDistance = drift > 1 ? 0 : drift * this.smokeMult;
         }
         else
         {
