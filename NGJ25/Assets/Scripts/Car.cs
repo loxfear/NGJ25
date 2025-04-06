@@ -59,6 +59,8 @@ public class Car : MonoBehaviour
     [SerializeField]
     public GameObject sleepEffect;
 
+    public float currentFuel => this.fuel / this.fuelMax;
+
     public void Initialize(Track track)
     {
         this.currentTrack = track;
@@ -181,5 +183,11 @@ public class Car : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddFuel(float addedFuel)
+    {
+        this.fuel += addedFuel;
+        this.fuel = Mathf.Max(this.fuel, this.fuelMax);
     }
 }

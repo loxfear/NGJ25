@@ -3,10 +3,17 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class GameCamera : MonoBehaviour
 {
+    [SerializeField]
+    private Volume speedVolume;
+    
+    [SerializeField]
+    private RectTransform fill;
+    
     [SerializeField]
     private TextMeshProUGUI speedUi;
     
@@ -86,6 +93,8 @@ public class GameCamera : MonoBehaviour
 
             var emission = this.warpSpeed.emission;
             emission.rateOverDistance = (this.car.CurrentSpeed - 0.1f) * 6;
+
+            this.fill.sizeDelta = new Vector2(this.car.currentFuel * 500f, this.fill.sizeDelta.y);
         }
 
         var currentLaptime = Time.time - lapTimeSnapshot;
@@ -110,5 +119,10 @@ public class GameCamera : MonoBehaviour
     {
         HUDActive.SetActive(false);
         HUDFinished.SetActive(true);
+    }
+
+    public void SpeedVolumeOn()
+    {
+        this.speedVolume.weight = 1f;
     }
 }
