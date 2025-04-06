@@ -74,10 +74,12 @@ public class Car : MonoBehaviour
     {
         this.currentTrack = track;
 
+        /*
         var centerOfMass = this.currentRigidbody.centerOfMass;
         centerOfMass.y += centreOfGravityOffset;
         this.currentRigidbody.centerOfMass = centerOfMass;
-
+        */
+        
         this.transform.SetParent(track.SplineExtrude.transform);
 
         carRigidbody = GetComponent<Rigidbody>();
@@ -202,6 +204,8 @@ public class Car : MonoBehaviour
                     {
                         wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
                     }
+
+                    wheel.WheelCollider.brakeTorque = this.isSleeping ? this.motorTorque : 0;
                 }
             }
         }
