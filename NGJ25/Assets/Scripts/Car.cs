@@ -88,8 +88,6 @@ public class Car : MonoBehaviour
         if(carEngineSound != null){
             initialCarEngineSoundPitch = carEngineSound.pitch;
         }
-        
-        InvokeRepeating("CarSounds", 0f, 0.1f);
     }
 
     public void SetLastCheckpoint(GameObject CP)
@@ -119,6 +117,8 @@ public class Car : MonoBehaviour
 
     void FixedUpdate()
     {
+        this.CarSounds();
+        
         var movement = Vector2.zero;
 
         var breaking = 0f;
@@ -217,8 +217,8 @@ public class Car : MonoBehaviour
         this.fuel = Mathf.Min(this.fuel, this.fuelMax);
     }
 
-    public void CarSounds(){
-        
+    public void CarSounds()
+    {
             try{
                 if(carEngineSound != null){
                     float engineSoundPitch = initialCarEngineSoundPitch + (Mathf.Abs(carRigidbody.linearVelocity.magnitude) / 25f);
@@ -242,7 +242,8 @@ public class Car : MonoBehaviour
     {
         foreach (Wheel w in wheels)
         {
-            if (w.isDrifting)
+            if (w.Drifting && this.CurrentSpeed > 0.1f)
+                
                 return true;
         }
 
