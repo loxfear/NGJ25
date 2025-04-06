@@ -37,6 +37,8 @@ public class Wheel : MonoBehaviour
     {
         this.forwardStiffness = this.wheelCollider.forwardFriction.stiffness;
         this.sidewaysStiffness = this.wheelCollider.sidewaysFriction.stiffness;
+        
+        this.wheelCollider.ConfigureVehicleSubsteps(5f, 12, 5);
     }
 
     public void UpdateVisuals(Car car, Vector3 linearVelocity)
