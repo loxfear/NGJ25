@@ -26,10 +26,13 @@ public class Wheel : MonoBehaviour
 
     private float forwardStiffness;
     private float sidewaysStiffness;
+    private float drift;
 
     public bool Steerable => this.steerable;
     
     public bool Motorized => this.motorized;
+
+    public bool isDrifting => drift < 1f;
     
     public WheelCollider WheelCollider => this.wheelCollider;
 
@@ -52,7 +55,7 @@ public class Wheel : MonoBehaviour
         
         if (this.wheelCollider.GetGroundHit(out var hit))
         {
-            var drift = (Vector3.Angle(hit.forwardDir, linearVelocity) / 90f) - this.smokeCutoff;
+            drift = (Vector3.Angle(hit.forwardDir, linearVelocity) / 90f) - this.smokeCutoff;
 
             this.driftParticleSystem.transform.position = hit.point + hit.normal * 0.25f;
             
