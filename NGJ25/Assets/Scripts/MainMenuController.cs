@@ -9,7 +9,10 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Transform[] wheels;
     public Vector3 rotationAxis = new Vector3(0f, 1f, 0f); // Y-axis by default
     public float rotationSpeed = 90f;
+    public float maxCarRotationAngle = 25f;
     [SerializeField] private RectTransform logo;
+
+    private float initialEulerY;
     
     private PlayerControls playerControls;
     private bool canStartGame;
@@ -20,6 +23,7 @@ public class MainMenuController : MonoBehaviour
         playerControls.Enable();
         
         canStartGame = false;
+        initialEulerY = car.localEulerAngles.y;
         StartCoroutine(LogoEntranceCo());
     }
 
@@ -29,7 +33,13 @@ public class MainMenuController : MonoBehaviour
         if (movementX != 0f)
         {
             float rotationDir = movementX > 0f ? 1f: -1f;
-            car.Rotate(rotationAxis.normalized * rotationDir * rotationSpeed * Time.deltaTime);
+            float angleDiff = car.localEulerAngles.y - initialEulerY;
+            bool canRotate = Mathf.Abs(angleDiff) <= maxCarRotationAngle || 
+                             (angleDiff > 0f && rotationDir > 0f) ||
+                             (angleDiff < 0f && rotationDir < 0f);
+            
+            if(canRotate)
+                car.Rotate(rotationAxis.normalized * rotationDir * rotationSpeed * Time.deltaTime);
             
             foreach (var w in wheels)
             {

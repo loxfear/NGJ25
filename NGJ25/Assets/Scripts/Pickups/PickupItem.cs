@@ -50,6 +50,7 @@ public class PickupItem : MonoBehaviour,IPickUp
             case Pickup_Type.Spill:
                 break;
             case Pickup_Type.Squirt:
+                _gameManager.OnSquirt();
                 break;
         }
         Debug.Log(Type +" Consumed");
@@ -80,6 +81,7 @@ public class PickupItem : MonoBehaviour,IPickUp
             case Pickup_Type.Spill:
                 break;
             case Pickup_Type.Squirt:
+                _gameManager.OnResetSquirt();
                 break;
         }
 

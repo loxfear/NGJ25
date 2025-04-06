@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Splines;
 using Random = UnityEngine.Random;
