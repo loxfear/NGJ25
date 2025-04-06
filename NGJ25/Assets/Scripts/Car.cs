@@ -26,8 +26,17 @@ public class Car : MonoBehaviour
     [SerializeField] private Rigidbody currentRigidbody;
 
     [SerializeField] private Wheel[] wheels;
+    
+    
+    public AudioSource carEngineSound; // This variable stores the sound of the car engine.
+    public AudioSource tireScreechSound; // This variable stores the sound of the tire screech (when the car is drifting).
+    float initialCarEngineSoundPitch; // Used to store the initial pitch of the car engine sound.
+    
+    
 
     public float MaxSpeed => this.maxSpeed;
+
+    private Rigidbody carRigidbody;
 
     public Transform CameraPoint => this.cameraPoint;
 
@@ -69,8 +78,14 @@ public class Car : MonoBehaviour
 
         this.transform.SetParent(track.SplineExtrude.transform);
 
+        carRigidbody = GetComponent<Rigidbody>();
         this.SetOnSpline(0);
         
+        if(carEngineSound != null){
+            initialCarEngineSoundPitch = carEngineSound.pitch;
+        }
+        
+        InvokeRepeating("CarSounds", 0f, 0.1f);
     }
 
     public void SetLastCheckpoint(GameObject CP)
@@ -116,7 +131,7 @@ public class Car : MonoBehaviour
                     this.fuel = 0f;
                     this.isSleeping = true;
                     Debug.Log("Falling asleep!");
-                    PoolManager.CreateAtTransform(this.sleepEffect, this.transform);
+                    PoolManager.CreateAsChild(this.sleepEffect, this.transform);
                 }
             }
             else
@@ -181,5 +196,35 @@ public class Car : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void CarSounds(){
+        
+            try{
+                if(carEngineSound != null){
+                    float engineSoundPitch = initialCarEngineSoundPitch + (Mathf.Abs(carRigidbody.linearVelocity.magnitude) / 25f);
+                    carEngineSound.pitch = engineSoundPitch;
+                }
+                if(IsCarDrifting()){
+                    if(!tireScreechSound.isPlaying){
+                        tireScreechSound.Play();
+                    }
+                }else{
+                    tireScreechSound.Stop();
+                }
+            }catch(Exception ex){
+                Debug.LogWarning(ex);
+            }
+    }
+
+    private bool IsCarDrifting()
+    {
+        foreach (Wheel w in wheels)
+        {
+            if (w.isDrifting)
+                return true;
+        }
+
+        return false;
     }
 }
