@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.Splines;
 
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
     public CheckpointInstancer cpInstancer;
     public GameObject FinishLine;
     public Material SquirtMat;
+
+    public GameObject winOverlay;
+
+    private bool canReset = false;
     
     private void Awake()
     {
@@ -138,11 +145,31 @@ public class GameManager : MonoBehaviour
     {
         gameCamera.SpawnMessage("Game Over");
         gameCamera.RaceOver();
+        
+        StartCoroutine(ResetCo());
     }
+        
+            IEnumerator ResetCo()
+            {
+                winOverlay.SetActive(true);
+
+                yield return new WaitForSeconds(1.5f);
+                
+                canReset = true;
+            }
+    
 
     public void PickUpMessage(string itemName)
     {
         gameCamera.SpawnMessage(itemName +"!!!");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F10) || (canReset && Input.anyKeyDown))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void InitializeRaceType()

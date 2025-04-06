@@ -63,7 +63,7 @@ public class MainMenuController : MonoBehaviour
             return;
         }
 
-        if (Input.anyKey && canStartGame)
+        if (Input.anyKeyDown && canStartGame)
             SceneManager.LoadScene(1);
     }
 
