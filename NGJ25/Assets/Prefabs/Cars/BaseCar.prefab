@@ -305,7 +305,7 @@ MonoBehaviour:
   motorTorque: 7700
   reverseTorque: 7700
   maxSpeed: 80
-  steeringRange: 30
+  steeringRange: 20
   steeringRangeAtMaxSpeed: 10
   centreOfGravityOffset: -1
   handBreakMult: 2
@@ -356,7 +356,7 @@ Rigidbody:
   m_Mass: 900
   m_Drag: 0
   m_AngularDrag: 0.01
-  m_CenterOfMass: {x: 0, y: -1, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0.4}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -365,7 +365,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -801,10 +801,6 @@ MonoBehaviour:
     - component: {fileID: 2909044579268597746}
       lodStepsActive: 1
     - component: {fileID: 1856500550204886281}
-      lodStepsActive: 1
-    - component: {fileID: 0}
-      lodStepsActive: 1
-    - component: {fileID: 0}
       lodStepsActive: 1
     - component: {fileID: 5378192262430134685}
       lodStepsActive: 1
