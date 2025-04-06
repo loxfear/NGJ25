@@ -136,8 +136,8 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _VignetteIntensity: 10
-    - _VignettePower: 2
+    - _VignetteIntensity: 0
+    - _VignettePower: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
