@@ -51,6 +51,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f9dbbca69e40fab4b89f9afe26bb4306, type: 3}
   - {fileID: 8300000, guid: f3960b724d3909041ab844cc2433dee6, type: 3}
   - {fileID: 8300000, guid: e00757e425b7d5b42bf80d7260fb6979, type: 3}
+  - {fileID: 8300000, guid: 91e53546f16ac974e8cc1f498009a06d, type: 3}
+  - {fileID: 8300000, guid: ceb4beaa4c788d64b85ab0fa16eeba27, type: 3}
   fadeDuration: 4
   volume: 1
   currentSource: {fileID: 4917691203189572257}
