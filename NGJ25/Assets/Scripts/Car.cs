@@ -41,6 +41,21 @@ public class Car : MonoBehaviour
 
     private GameObject lastCP;
 
+    [SerializeField]
+    public float fuel = 100f;
+
+    [SerializeField]
+    public float fuelMax = 100f;
+
+    [SerializeField, Tooltip("Consumption per second.")]
+    public float fuelConsumption = 5f;
+
+    [SerializeField, Tooltip("How long does the car sleep for")]
+    public float sleepDuration = 3f;
+
+    [SerializeField]
+    public bool isSleeping = false;
+
     public void Initialize(Track track)
     {
         this.currentTrack = track;
@@ -89,6 +104,28 @@ public class Car : MonoBehaviour
 
         if (this.playerControls != null)
         {
+            // Fuel consumption.
+            if (this.isSleeping == false)
+            {
+                this.fuel -= this.fuelConsumption;
+                if (this.fuel <= 0f)
+                {
+                    this.fuel = 0f;
+                    this.isSleeping = true;
+                    Debug.Log("Falling asleep!");
+                }
+            }
+            else
+            {
+                this.fuel += this.fuelConsumption * 5f;
+                if (this.fuel >= this.fuelMax)
+                {
+                    this.fuel = this.fuelMax;
+                    this.isSleeping = false;
+                    Debug.Log("Waking up!");
+                }
+            }
+
             movement.y = this.playerControls.Player.Accelerate.ReadValue<float>() -
                          this.playerControls.Player.Break.ReadValue<float>();
             movement.x = this.playerControls.Player.Move.ReadValue<Vector2>().x;
