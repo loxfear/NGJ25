@@ -116,7 +116,7 @@ public class Car : MonoBehaviour
                     this.fuel = 0f;
                     this.isSleeping = true;
                     Debug.Log("Falling asleep!");
-                    PoolManager.CreateAtTransform(this.sleepEffect, this.transform);
+                    PoolManager.CreateAsChild(this.sleepEffect, this.transform);
                 }
             }
             else
