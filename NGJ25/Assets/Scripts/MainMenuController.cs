@@ -33,13 +33,17 @@ public class MainMenuController : MonoBehaviour
         if (movementX != 0f)
         {
             float rotationDir = movementX > 0f ? 1f: -1f;
-            float angleDiff = car.localEulerAngles.y - initialEulerY;
-            bool canRotate = Mathf.Abs(angleDiff) <= maxCarRotationAngle || 
-                             (angleDiff > 0f && rotationDir > 0f) ||
-                             (angleDiff < 0f && rotationDir < 0f);
             
-            if(canRotate)
-                car.Rotate(rotationAxis.normalized * rotationDir * rotationSpeed * Time.deltaTime);
+            float desiredRotation = initialEulerY + rotationDir * maxCarRotationAngle;
+            float targetYRotation = Mathf.MoveTowardsAngle(
+                car.localEulerAngles.y,
+                desiredRotation,
+                rotationSpeed * Time.deltaTime
+            );
+
+            Vector3 newEuler = car.localEulerAngles;
+            newEuler.y = targetYRotation;
+            car.localEulerAngles = newEuler;
             
             foreach (var w in wheels)
             {
