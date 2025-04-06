@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motorTorque: 7700
+  reverseTorque: 7700
   brakeTorque: 6600
   maxSpeed: 80
   steeringRange: 50
@@ -625,15 +626,11 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 4506047373224371688}
       lodStepsActive: 1
-    - component: {fileID: 0}
-      lodStepsActive: 1
     - component: {fileID: 6923953373414906441}
       lodStepsActive: 1
     - component: {fileID: 2909044579268597746}
       lodStepsActive: 1
     - component: {fileID: 1856500550204886281}
-      lodStepsActive: 1
-    - component: {fileID: 0}
       lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
   interpolationLocation: 1

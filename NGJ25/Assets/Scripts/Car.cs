@@ -8,9 +8,9 @@ using UnityEngine.Serialization;
 public class Car : MonoBehaviour
 {
     [SerializeField] public float motorTorque = 2000f;
-
-    [SerializeField] public float brakeTorque = 2000f;
-
+    
+    [SerializeField] public float reverseTorque = 2000f;
+    
     [SerializeField] private float maxSpeed = 120f;
 
     [SerializeField] public float steeringRange = 30f;
@@ -121,10 +121,8 @@ public class Car : MonoBehaviour
 
                 this.CurrentSpeed = forwardSpeed / this.maxSpeed;
 
-                var currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+                var currentMotorTorque = Mathf.Lerp(vInput > 0 ? this.motorTorque : this.reverseTorque, 0, speedFactor);
                 var currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
-
-                bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
 
                 foreach (var wheel in wheels)
                 {
@@ -135,19 +133,9 @@ public class Car : MonoBehaviour
                         wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
                     }
 
-                    if (isAccelerating)
+                    if (wheel.Motorized)
                     {
-                        if (wheel.Motorized)
-                        {
-                            wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
-                        }
-
-                        wheel.WheelCollider.brakeTorque = 0f;
-                    }
-                    else
-                    {
-                        wheel.WheelCollider.motorTorque = 0f;
-                        wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
                     }
                 }
             }
