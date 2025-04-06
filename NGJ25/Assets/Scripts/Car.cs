@@ -153,6 +153,13 @@ public class Car : MonoBehaviour
             breaking = this.playerControls.Player.HandBreak.ReadValue<float>();
             reset = this.playerControls.Player.Reset.ReadValue<float>();
 
+            if (this.isSleeping)
+            {
+                movement = new Vector2(0, 0);
+                breaking = 0f;
+                reset = 0f;
+            }
+
             if (reset != 0)
             {
                 if(lastCP!=null)
