@@ -82,7 +82,7 @@ public class GameCamera : MonoBehaviour
 
             this.mainCamera.fieldOfView = Mathf.Lerp(this.mainCamera.fieldOfView, Mathf.Max(this.startFov * this.car.CurrentSpeed * this.fovMult, this.startFov), this.fovLerp);
             
-            this.speedUi.SetText((Mathf.Round(this.car.CurrentSpeed * this.car.MaxSpeed)).ToString());
+            this.speedUi.SetText((Mathf.Round(this.car.CurrentSpeed * this.car.MaxSpeed) * 3f).ToString());
 
             var emission = this.warpSpeed.emission;
             emission.rateOverDistance = (this.car.CurrentSpeed - 0.1f) * 6;

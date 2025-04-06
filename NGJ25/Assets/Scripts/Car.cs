@@ -68,6 +68,11 @@ public class Car : MonoBehaviour
                 this.currentTrack.SplineExtrude.Container.EvaluateUpVector(value));
         this.transform.position =
             this.transform.TransformPoint(this.currentTrack.SplineExtrude.Container.EvaluateUpVector(value) * 0.25f);
+
+        this.currentRigidbody.position = this.transform.position;
+        this.currentRigidbody.rotation = this.transform.rotation;
+        this.currentRigidbody.angularVelocity = Vector3.zero;
+        this.currentRigidbody.linearVelocity = Vector3.zero;
     }
 
     public void SetControls(PlayerControls playerControls)
