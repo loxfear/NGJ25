@@ -132,11 +132,13 @@ MonoBehaviour:
   carPrefab: {fileID: 2322262040227990529, guid: 09a39f87cdb530a4ca3c2edbf31bec5c, type: 3}
   localPlayer: {fileID: 8222810878225581529}
   gameCamera: {fileID: 4454289234365292057}
-  pickupGenerator: {fileID: 1944518985322874805}
+  pickupGenerator: {fileID: 1725929388599559417}
+  environmentSetter: {fileID: 0}
   raceType: 1
   Laps: 3
   checkpointTracker: {fileID: 8099732697906122402}
   cpInstancer: {fileID: 1628483734544123031}
+  FinishLine: {fileID: 0}
 --- !u!1001 &1528088642789718360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,15 +196,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f54415afa8c44af986c5ba47ba5f5a5, type: 3}
---- !u!114 &1944518985322874805 stripped
+--- !u!114 &1725929388599559417 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1137314146193669869, guid: 5f54415afa8c44af986c5ba47ba5f5a5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200242113565719969, guid: 5f54415afa8c44af986c5ba47ba5f5a5, type: 3}
   m_PrefabInstance: {fileID: 1528088642789718360}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4d6b0746f974ce2922af301226888a, type: 3}
+  m_Script: {fileID: 11500000, guid: d83994b30cb11454eac4bf3b97342b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &3234774616107179211 stripped

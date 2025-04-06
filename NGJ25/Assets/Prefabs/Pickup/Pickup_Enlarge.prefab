@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4307960476711379127, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
       propertyPath: m_Name
-      value: Pickup_Base
+      value: Pickup_Enlarge
       objectReference: {fileID: 0}
     - target: {fileID: 5604134666221593850, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5701049348931726658, guid: a65d4aa369ec5ee4d93518d199673260, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ce0afc9be9ab991478dfc23bdd205d11, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
