@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2322262040227990529}
   - component: {fileID: 2523642235582335499}
   - component: {fileID: -2659019086261623339}
+  - component: {fileID: 5000999329013277034}
   - component: {fileID: -7238568539221968775}
   m_Layer: 6
   m_Name: BaseCar
@@ -171,8 +172,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6994689, y: 1.0187612, z: 4.792431}
-  m_Center: {x: 0.0046903193, y: 0.97, z: 0.014664173}
+  m_Size: {x: 1.6994689, y: 1.0187612, z: 5.19}
+  m_Center: {x: 0.0046903193, y: 0.97, z: 0.5}
 --- !u!54 &-2659019086261623339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -200,6 +201,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!136 &5000999329013277034
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4045955151095476514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.03
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.96, z: 0.46}
 --- !u!114 &-7238568539221968775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +616,24 @@ MonoBehaviour:
     - component: {fileID: 8065861567174760477}
       lodStepsActive: 1
     - component: {fileID: 3678644166380400694}
+      lodStepsActive: 1
+    - component: {fileID: 5000999329013277034}
+      lodStepsActive: 1
+    - component: {fileID: 2635989670485597785}
+      lodStepsActive: 1
+    - component: {fileID: 9083623137182652110}
+      lodStepsActive: 1
+    - component: {fileID: 4506047373224371688}
+      lodStepsActive: 1
+    - component: {fileID: 0}
+      lodStepsActive: 1
+    - component: {fileID: 6923953373414906441}
+      lodStepsActive: 1
+    - component: {fileID: 2909044579268597746}
+      lodStepsActive: 1
+    - component: {fileID: 1856500550204886281}
+      lodStepsActive: 1
+    - component: {fileID: 0}
       lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
   interpolationLocation: 1

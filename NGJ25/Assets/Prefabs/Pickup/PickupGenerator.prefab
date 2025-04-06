@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166083478008292755}
-  - component: {fileID: 1137314146193669869}
-  - component: {fileID: 4828121208707297048}
+  - component: {fileID: 200242113565719969}
   m_Layer: 0
   m_Name: PickupGenerator
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137314146193669869
+--- !u!114 &200242113565719969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,78 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7573563695801189078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4d6b0746f974ce2922af301226888a, type: 3}
+  m_Script: {fileID: 11500000, guid: d83994b30cb11454eac4bf3b97342b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splineInstantiate: {fileID: 4828121208707297048}
-  powerUps:
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 5936530324574278102, guid: 7fc2f667239d44041a829b865285f65d, type: 3}
-    probability: 0
-    Probability: 20
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 9109841024252120077, guid: deced20c5b3024086861afc0c2386952, type: 3}
-    probability: 0
-    Probability: 20
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 4693767624397535958, guid: e064c42da79644992a6edafb09fc23f4, type: 3}
-    probability: 0
-    Probability: 20
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 3902860346509105267, guid: 8c791128aa8504fb3be047f380eb2338, type: 3}
-    probability: 0
-    Probability: 20
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 18624499433270612, guid: d7de8700a58434ba08b6697eec18223c, type: 3}
-    probability: 0
-    Probability: 20
-  - prefab: {fileID: 0}
-    Prefab: {fileID: 9046388855040419579, guid: f78a9ef598956432ab87d0591bab1e0a, type: 3}
-    probability: 0
-    Probability: 20
---- !u!114 &4828121208707297048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573563695801189078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Container: {fileID: 0}
-  m_ItemsToInstantiate: []
-  m_Method: 1
-  m_Space: 0
-  m_Spacing: {x: 90, y: 130}
-  m_Up: 1
-  m_Forward: 2
-  m_PositionOffset:
-    setup: 1
-    min: {x: -5, y: 1, z: 0}
-    max: {x: 5, y: 1, z: 0}
-    randomX: 1
-    randomY: 0
-    randomZ: 0
-    space: 0
-  m_RotationOffset:
-    setup: 0
-    min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
-    randomX: 0
-    randomY: 0
-    randomZ: 0
-    space: 0
-  m_ScaleOffset:
-    setup: 0
-    min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
-    randomX: 0
-    randomY: 0
-    randomZ: 0
-    space: 0
-  m_DeprecatedInstances: []
-  m_AutoRefresh: 0
-  m_Seed: -98926
+  splineExtrude: {fileID: 0}
+  pickups:
+  - {fileID: 5936530324574278102, guid: 7fc2f667239d44041a829b865285f65d, type: 3}
+  - {fileID: 9109841024252120077, guid: deced20c5b3024086861afc0c2386952, type: 3}
+  - {fileID: 4693767624397535958, guid: e064c42da79644992a6edafb09fc23f4, type: 3}
+  - {fileID: 3902860346509105267, guid: 8c791128aa8504fb3be047f380eb2338, type: 3}
+  - {fileID: 18624499433270612, guid: d7de8700a58434ba08b6697eec18223c, type: 3}
+  - {fileID: 9046388855040419579, guid: f78a9ef598956432ab87d0591bab1e0a, type: 3}
+  m_Interpolation: 0.5
