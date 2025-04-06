@@ -203,7 +203,7 @@ public class Car : MonoBehaviour
     public void AddFuel(float addedFuel)
     {
         this.fuel += addedFuel;
-        this.fuel = Mathf.Max(this.fuel, this.fuelMax);
+        this.fuel = Mathf.Min(this.fuel, this.fuelMax);
     }
 
     public void CarSounds(){
