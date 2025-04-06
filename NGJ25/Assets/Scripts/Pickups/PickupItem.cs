@@ -28,6 +28,8 @@ public class PickupItem : MonoBehaviour,IPickUp
     [SerializeField] 
     private float fuel = 20f;
 
+    public AudioSource pickupAudio;
+
     private GameManager _gameManager;
 
     private bool isConsumed;
@@ -67,6 +69,8 @@ public class PickupItem : MonoBehaviour,IPickUp
                 _gameManager.OnSquirt();
                 break;
         }
+        
+        if(pickupAudio) pickupAudio.Play();
 
         var car = _other.GetComponent<Car>();
 
