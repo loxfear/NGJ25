@@ -51,6 +51,7 @@ MonoBehaviour:
   reducedSize: 0.75
   resetTime: 5
   particleSystem: {fileID: 3148588004284057229}
+  mesh: {fileID: 6061509048868768919}
 --- !u!135 &1338902016926352130
 SphereCollider:
   m_ObjectHideFlags: 0

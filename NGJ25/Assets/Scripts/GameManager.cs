@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private GameCamera gameCamera;
     
     [SerializeField]
-    private PickupGenerator pickupGenerator;
+    private PickupInstancer pickupGenerator;
     
     [SerializeField]
     private EnvironmentSetter environmentSetter;
@@ -54,11 +54,11 @@ public class GameManager : MonoBehaviour
 
         this.localPlayer.SetCar(localCar);
 
-        this.pickupGenerator = FindFirstObjectByType<PickupGenerator>();
+        this.pickupGenerator = FindFirstObjectByType<PickupInstancer>();
         
         this.environmentSetter = FindFirstObjectByType<EnvironmentSetter>();
         
-        this.pickupGenerator.Initialize(localTrack.SplineExtrude.Container);
+        this.pickupGenerator.Initialize(localTrack.SplineExtrude);
         
 //        checkpointSpline.UpdateInstances();
         this.cpInstancer.Initialize(localTrack.SplineExtrude,this);

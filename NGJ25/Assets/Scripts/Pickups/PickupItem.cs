@@ -21,6 +21,9 @@ public class PickupItem : MonoBehaviour,IPickUp
 
     [SerializeField] 
     private GameObject particleSystem;
+    
+    [SerializeField] 
+    private GameObject mesh;
 
     private GameManager _gameManager;
 
@@ -50,6 +53,7 @@ public class PickupItem : MonoBehaviour,IPickUp
                 break;
         }
         Debug.Log(Type +" Consumed");
+        mesh.SetActive(false);
         particleSystem.SetActive(true);
         _gameManager.PickUpMessage(Type.ToString());
         Invoke("Reset",resetTime);
@@ -78,6 +82,8 @@ public class PickupItem : MonoBehaviour,IPickUp
             case Pickup_Type.Squirt:
                 break;
         }
+
+        mesh.SetActive(true);
         particleSystem.SetActive(false);
     }
 }
