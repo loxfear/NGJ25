@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public TrackCheckpoints checkpointTracker;
     public CheckpointInstancer cpInstancer;
     public GameObject FinishLine;
+    public Material SquirtMat;
     
     private void Awake()
     {
@@ -117,6 +118,18 @@ public class GameManager : MonoBehaviour
     private void RaceWon(object sender, EventArgs e)
     {
         throw new NotImplementedException();
+    }
+
+    public void OnSquirt()
+    {
+        SquirtMat.SetFloat("_VignettePower",2);
+        SquirtMat.SetFloat("_VignetteIntensity",10);
+    }
+
+    public void OnResetSquirt()
+    {
+        SquirtMat.SetFloat("_VignettePower",0);
+        SquirtMat.SetFloat("_VignetteIntensity",0);
     }
 
     public void RaceWon()

@@ -139,6 +139,7 @@ MonoBehaviour:
   checkpointTracker: {fileID: 8099732697906122402}
   cpInstancer: {fileID: 1628483734544123031}
   FinishLine: {fileID: 0}
+  SquirtMat: {fileID: 2100000, guid: bccf441de8d234e278029e8a4e88227b, type: 2}
 --- !u!1001 &1528088642789718360
 PrefabInstance:
   m_ObjectHideFlags: 0
