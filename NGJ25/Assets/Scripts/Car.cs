@@ -57,13 +57,16 @@ public class Car : MonoBehaviour
     public float fuelMax = 100f;
 
     [SerializeField, Tooltip("Consumption per second.")]
-    public float fuelConsumption = 5f;
+    public float fuelConsumption = 0.25f;
 
     [SerializeField, Tooltip("How long does the car sleep for")]
     public float sleepDuration = 3f;
 
     [SerializeField]
     public bool isSleeping = false;
+
+    [SerializeField]
+    public GameObject sleepEffect;
 
     public void Initialize(Track track)
     {
@@ -128,6 +131,7 @@ public class Car : MonoBehaviour
                     this.fuel = 0f;
                     this.isSleeping = true;
                     Debug.Log("Falling asleep!");
+                    PoolManager.CreateAsChild(this.sleepEffect, this.transform);
                 }
             }
             else
