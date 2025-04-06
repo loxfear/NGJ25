@@ -141,7 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motorTorque: 7700
   reverseTorque: 7700
-  brakeTorque: 6600
   maxSpeed: 80
   steeringRange: 50
   steeringRangeAtMaxSpeed: 50
@@ -154,6 +153,12 @@ MonoBehaviour:
   - {fileID: 5229354530468265942}
   - {fileID: 7639624004785461712}
   - {fileID: 5695151653113773153}
+  fuel: 100
+  fuelMax: 100
+  fuelConsumption: 0.05
+  sleepDuration: 3
+  isSleeping: 0
+  sleepEffect: {fileID: 1033021190011292064, guid: 238260e7487d0de4fbc6c0a3a7f94aee, type: 3}
 --- !u!65 &2523642235582335499
 BoxCollider:
   m_ObjectHideFlags: 0
