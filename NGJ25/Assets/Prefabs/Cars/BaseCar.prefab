@@ -320,7 +320,7 @@ MonoBehaviour:
   tireScreechSound: {fileID: 3571101218457182699}
   fuel: 100
   fuelMax: 100
-  fuelConsumption: 0.025
+  fuelConsumption: 0.085
   sleepDuration: 3
   isSleeping: 0
   sleepEffect: {fileID: 1033021190011292064, guid: f89c011225c23ff419c0df4904a2c7b8, type: 3}
@@ -356,7 +356,7 @@ Rigidbody:
   m_Mass: 900
   m_Drag: 0
   m_AngularDrag: 0.01
-  m_CenterOfMass: {x: 0, y: -0.5, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0.4}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
