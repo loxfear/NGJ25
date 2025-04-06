@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e032abe6843b274abfebea55d892353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedVolume: {fileID: 6810488801272006693}
+  fill: {fileID: 8031529598192188243}
   speedUi: {fileID: 4352437397520201761}
   lapCountUi: {fileID: 7239377098265417834}
   lapTimerUi: {fileID: 4472117629139835358}
@@ -477,6 +479,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7532456415384289732, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532456415384289732, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532456415384289732, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532456415384289732, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.300003
+      objectReference: {fileID: 0}
     - target: {fileID: 9114542852110963472, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -554,6 +572,11 @@ MonoBehaviour:
 --- !u!224 &8014825423978321998 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7550128561398440665, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
+  m_PrefabInstance: {fileID: 575634669606812311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8031529598192188243 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7532456415384289732, guid: ad587d9b089312a498ab11d4100832ca, type: 3}
   m_PrefabInstance: {fileID: 575634669606812311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8755082065213811079 stripped

@@ -25,8 +25,13 @@ public class PickupItem : MonoBehaviour,IPickUp
     [SerializeField] 
     private GameObject mesh;
 
+    [SerializeField] 
+    private float fuel = 20f;
+
     private GameManager _gameManager;
 
+    private bool isConsumed;
+    
     private void Start()
     {
         particleSystem.SetActive(false);
@@ -35,6 +40,15 @@ public class PickupItem : MonoBehaviour,IPickUp
 
     public void Consume()
     {
+        if (this.isConsumed)
+        {
+            return;
+        }
+        else
+        {
+            this.isConsumed = true;
+        }
+        
         switch (Type)
         {
             case Pickup_Type.SpeedUp:
@@ -53,6 +67,14 @@ public class PickupItem : MonoBehaviour,IPickUp
                 _gameManager.OnSquirt();
                 break;
         }
+
+        var car = _other.GetComponent<Car>();
+
+        if (car != null)
+        {
+            car.AddFuel(this.fuel);
+        }
+        
         Debug.Log(Type +" Consumed");
         mesh.SetActive(false);
         particleSystem.SetActive(true);
@@ -87,5 +109,6 @@ public class PickupItem : MonoBehaviour,IPickUp
 
         mesh.SetActive(true);
         particleSystem.SetActive(false);
+        this.isConsumed = false;
     }
 }

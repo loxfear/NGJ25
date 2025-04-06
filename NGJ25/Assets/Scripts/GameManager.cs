@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
 
     public void OnCheckpointhit()
     {
+        gameCamera.SpeedVolumeOn();
+        
         currentCheckpoint += 1;
         bool resetLap = false;
         if (currentCheckpoint % 3 == 0)
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Lap" + currentLap);
         
         gameCamera.UpdateLaps((currentLap+1)+ "/"+Laps,resetLap);
-        
+
         //To Do when lap get complete 
     }
     private void GameStart()
@@ -145,6 +147,8 @@ public class GameManager : MonoBehaviour
 
     public void InitializeRaceType()
     {
+        this.OnResetSquirt();
+        
         switch (raceType)
         {
             case RaceType.Laps:
