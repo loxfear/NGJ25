@@ -221,6 +221,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6653629692698458784}
     m_Modifications:
+    - target: {fileID: 478434309038977085, guid: bad3c8eeb0d05624db524fe7bb913d84, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2657697627309290020, guid: bad3c8eeb0d05624db524fe7bb913d84, type: 3}
       propertyPath: m_Name
       value: GameCamera
