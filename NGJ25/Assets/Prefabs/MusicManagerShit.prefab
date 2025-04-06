@@ -47,11 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClips:
-  - {fileID: 8300000, guid: 0993e81dfbf7843478391ba3c55cd9a3, type: 3}
-  - {fileID: 8300000, guid: 3c38971d6e17dba4e9f50735643589ce, type: 3}
-  - {fileID: 8300000, guid: 14d13ff78074c4b4c9d3e593172e19f1, type: 3}
-  - {fileID: 8300000, guid: 9b303f8ef54d37d43bae7d43e7de9d2e, type: 3}
-  - {fileID: 8300000, guid: 13e01d90a50bfb949b4350da0c756e9e, type: 3}
+  - {fileID: 8300000, guid: 20f37c5ea50a1bb46a40d05f0596ed68, type: 3}
+  - {fileID: 8300000, guid: f9dbbca69e40fab4b89f9afe26bb4306, type: 3}
+  - {fileID: 8300000, guid: f3960b724d3909041ab844cc2433dee6, type: 3}
+  - {fileID: 8300000, guid: e00757e425b7d5b42bf80d7260fb6979, type: 3}
   fadeDuration: 4
   volume: 1
   currentSource: {fileID: 4917691203189572257}
