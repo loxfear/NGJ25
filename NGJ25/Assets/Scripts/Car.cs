@@ -68,14 +68,18 @@ public class Car : MonoBehaviour
     [SerializeField]
     public GameObject sleepEffect;
 
+    public float currentFuel => this.fuel / this.fuelMax;
+
     public void Initialize(Track track)
     {
         this.currentTrack = track;
 
+        /*
         var centerOfMass = this.currentRigidbody.centerOfMass;
         centerOfMass.y += centreOfGravityOffset;
         this.currentRigidbody.centerOfMass = centerOfMass;
-
+        */
+        
         this.transform.SetParent(track.SplineExtrude.transform);
 
         carRigidbody = GetComponent<Rigidbody>();
@@ -151,6 +155,13 @@ public class Car : MonoBehaviour
             breaking = this.playerControls.Player.HandBreak.ReadValue<float>();
             reset = this.playerControls.Player.Reset.ReadValue<float>();
 
+            if (this.isSleeping)
+            {
+                movement = new Vector2(0, 0);
+                breaking = 0f;
+                reset = 0f;
+            }
+
             if (reset != 0)
             {
                 if(lastCP!=null)
@@ -193,11 +204,19 @@ public class Car : MonoBehaviour
                     {
                         wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
                     }
+
+                    wheel.WheelCollider.brakeTorque = this.isSleeping ? this.motorTorque : 0;
                 }
             }
         }
     }
-    
+
+    public void AddFuel(float addedFuel)
+    {
+        this.fuel += addedFuel;
+        this.fuel = Mathf.Min(this.fuel, this.fuelMax);
+    }
+
     public void CarSounds(){
         
             try{
@@ -205,7 +224,9 @@ public class Car : MonoBehaviour
                     float engineSoundPitch = initialCarEngineSoundPitch + (Mathf.Abs(carRigidbody.linearVelocity.magnitude) / 25f);
                     carEngineSound.pitch = engineSoundPitch;
                 }
-                if(IsCarDrifting()){
+                if(IsCarDrifting() 
+                   || (this.playerControls.Player.Break.ReadValue<float>() > 0.1f && CurrentSpeed > 10f) 
+                   || this.playerControls.Player.HandBreak.ReadValue<float>() > 0.1f){
                     if(!tireScreechSound.isPlaying){
                         tireScreechSound.Play();
                     }

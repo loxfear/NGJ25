@@ -42,6 +42,8 @@ public class TrackCheckpoints : MonoBehaviour {
     public void CarThroughCheckpoint(CheckpointSingle checkpointSingle, Transform carTransform) {
         int nextCheckpointSingleIndex = nextCheckpointSingleIndexList[carTransformList.IndexOf(carTransform)];
         if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex) {
+            _gameManager.OnCheckpointhit();
+            
             // Correct checkpoint
             Debug.Log("Correct");
             CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
@@ -50,7 +52,6 @@ public class TrackCheckpoints : MonoBehaviour {
             nextCheckpointSingleIndexList[carTransformList.IndexOf(carTransform)]
                 = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
             OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
-            _gameManager.OnCheckpointhit();
         } else {
             // Wrong checkpoint
             Debug.Log("Wrong");

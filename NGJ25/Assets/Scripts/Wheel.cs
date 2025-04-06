@@ -32,7 +32,9 @@ public class Wheel : MonoBehaviour
     
     public bool Motorized => this.motorized;
 
-    public bool isDrifting => drift < 1f;
+    public bool isDrifting => driftTime > 1f;
+    
+    private float driftTime = 0f;
     
     public WheelCollider WheelCollider => this.wheelCollider;
 
@@ -56,6 +58,11 @@ public class Wheel : MonoBehaviour
         if (this.wheelCollider.GetGroundHit(out var hit))
         {
             drift = (Vector3.Angle(hit.forwardDir, linearVelocity) / 90f) - this.smokeCutoff;
+
+            if (drift < 1f)
+                driftTime += Time.deltaTime;
+            else
+                driftTime = 0f;
 
             this.driftParticleSystem.transform.position = hit.point + hit.normal * 0.25f;
             
