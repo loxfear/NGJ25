@@ -74,6 +74,15 @@ public class PickupItem : MonoBehaviour,IPickUp
         {
             car.AddFuel(this.fuel);
         }
+        else
+        {
+            car = _other.GetComponentInParent<Car>();
+            
+            if (car != null)
+            {
+                car.AddFuel(this.fuel);
+            }
+        }
         
         Debug.Log(Type +" Consumed");
         mesh.SetActive(false);

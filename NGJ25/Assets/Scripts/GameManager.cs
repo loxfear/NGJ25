@@ -162,6 +162,7 @@ public class GameManager : MonoBehaviour
     public void PickUpMessage(string itemName)
     {
         gameCamera.SpawnMessage(itemName +"!!!");
+        gameCamera.SpeedVolumeOn();
     }
 
     private void Update()
