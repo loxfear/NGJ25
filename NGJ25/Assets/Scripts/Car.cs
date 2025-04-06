@@ -220,7 +220,9 @@ public class Car : MonoBehaviour
                     float engineSoundPitch = initialCarEngineSoundPitch + (Mathf.Abs(carRigidbody.linearVelocity.magnitude) / 25f);
                     carEngineSound.pitch = engineSoundPitch;
                 }
-                if(IsCarDrifting()){
+                if(IsCarDrifting() 
+                   || (this.playerControls.Player.Break.ReadValue<float>() > 0.1f && CurrentSpeed > 10f) 
+                   || this.playerControls.Player.HandBreak.ReadValue<float>() > 0.1f){
                     if(!tireScreechSound.isPlaying){
                         tireScreechSound.Play();
                     }
